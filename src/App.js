@@ -15,9 +15,9 @@ function App() {
           <Route path="/" exact>
             <Login />
           </Route>
-          <Route path="/order">
+          {/* <Route path="/order">
             Menu order...
-          </Route>
+          </Route> */}
         </Switch>
       </Router>
     </div>
