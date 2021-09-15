@@ -1,13 +1,13 @@
 import React from 'react';
 import './Login.css'; 
-import logo from './images/logo.png';
+// import logo from './images/logo.png';
 import { auth } from '../firebase';
 
 function Login() {
   // const [username, setUsername] = React.useState('');
   const [email, setEmail] = React.useState('');
   const [password, setPassword] = React.useState('');
-  const [error, setError] = React.useState(null);
+  const [setError] = React.useState(null);
 
   const saveUserData = (e) => {
     e.preventDefault();
@@ -42,18 +42,28 @@ function Login() {
         setError('Invalid email');
       }
     }
-  }, [email, password])
+  }, [email, password, setError])
 
 
 
   return (
-    <div>
-      <img src={ logo } alt="namitown" />
-      <form onSubmit={ saveUserData }>
+    <div className="grid">
+      <div className="logo-container">
+        <div className="img"></div>
+      </div>
+      <div className="form-grid">
+          <form className="form-container" onSubmit={saveUserData}>
+            <input type="email" placeholder="Username" className="form-input" onChange={ (e) => setEmail(e.target.value)} value={email}></input>
+            <input type="password" placeholder="Password" className="form-input" onChange={ (e) => setPassword(e.target.value)} value={password}></input>
+            <button className="btn" type="submit">LOGIN</button>
+          </form>
+      </div>
+      {/* <img src={ logo } alt="namitown" /> */}
+      {/* <form onSubmit={ saveUserData }>
         <input type="email" placeholder="Username" className="form-control mb-2" onChange={ (e) => setEmail(e.target.value)} value={email}></input>
         <input type="password" placeholder="Password" className="form-control mb-2" onChange={ (e) => setPassword(e.target.value)} value={password}></input>
-        <button className="btn btn-danger w-100" type="submit">LOGIN</button>
-      </form>
+        <button className="btn btn-primary" type="submit">LOGIN</button>
+      </form> */}
     </div>
   )
 }

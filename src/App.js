@@ -2,13 +2,12 @@ import Login from './components/Login';
 import {
   BrowserRouter as Router,
   Switch,
-  Route,
-  Link
+  Route
 } from "react-router-dom";
 
 function App() {
   return (
-    <div className="container mt=5">
+    <div>
       {/* <h1>Ñami Town</h1> */}
       <Router>
         <Switch>
