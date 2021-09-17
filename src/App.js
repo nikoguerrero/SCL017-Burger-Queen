@@ -1,4 +1,7 @@
 import Login from './components/Login';
+import Menu from './components/Menu';
+import Navbar from './components/Navbar';
+
 import {
   BrowserRouter as Router,
   Switch,
@@ -15,7 +18,8 @@ function App() {
             <Login />
           </Route>
           <Route path="/menu">
-            Menu order...
+            <Menu />
+            <Navbar />
           </Route>
         </Switch>
       </Router>

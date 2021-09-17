@@ -1,10 +1,11 @@
+
 .grid {
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: 3fr fit-content(40px) 3fr;
   width: 100vw;
   height: 100vh;
-  background-color: #F5B994;
+  background-color: var(--clr-primary);
 }
 
 .toggle-container {
@@ -30,7 +31,6 @@
 }
 
 .img {
-  /* width: 660px; */
   height: 100%;
   background: url('./images/logo.png');
   background-repeat: no-repeat;
@@ -42,7 +42,7 @@
 }
 
 .error-message {
-  color:aliceblue;
+  color:var(--clr-secondary);
   font-family: "Montserrat";
   font-size: 1.4rem;
   grid-row: 2;
@@ -78,17 +78,21 @@
   padding: 20px;
   font-size: 24px;
   font-family: "Montserrat";
-  /* padding-right:30px; */
+}
+
+.form-input:focus {
+  outline: none;
+  box-shadow: 0 0 10px white;
 }
 
 .user {
-  background: #ECECEC url(images/user.png) right no-repeat scroll;
+  background: var(--clr-background) url(images/user.png) right no-repeat scroll;
   background-size: 10%;
   padding-right: 20px;
 }
 
 .password {
-  background: #ECECEC url(images/pass.png) right no-repeat scroll;
+  background: var(--clr-background) url(images/pass.png) right no-repeat scroll;
   background-size: 10%;
   padding-right: 20px;
 }
@@ -97,9 +101,9 @@
   /* min-height: 3.125rem; */
   width: 400px;
   height: 63px;
-  background-color: #D21A33;
+  background-color: var(--clr-redish);
   border-radius: 20px;
-  color: aliceblue;
+  color: var(--clr-secondary);
   border: 0px;
   font-size: 24px;
   font-family: "Fredoka One";
@@ -130,7 +134,7 @@
     grid-row: 1/-1;
     height: 100vh;
     grid-column: 1;
-    background-color: #F5B994;
+    background-color: var(--clr-primary);
   }
 
   .img {
@@ -147,7 +151,7 @@
     justify-content: center;
     font-family: 'Fredoka One';
     font-size: 2rem;
-    color: #D21A33;
+    color: var(--clr-redish);
   }
 
   .error-message {
