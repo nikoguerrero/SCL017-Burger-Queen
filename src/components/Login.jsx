@@ -43,7 +43,9 @@ const Login = (props) => {
     }
   }, [email, password, props.history])
 
-
+  const introMessages = [
+    'Everything\'s so yummy!', 'Ñami, ñami', '🐱 🍔'
+  ];
 
   return (
     <div className="grid">
@@ -54,7 +56,8 @@ const Login = (props) => {
         {/* <img src={ logo } alt="namitown" /> */}
         <div className="img"></div>
       </div>
-      <div className="errorMessage">{ error && (<div>{error}</div>) }</div>
+      <div className="logo-message">{ introMessages[Math.floor(Math.random() * introMessages.length)] }</div>
+      <div className="error-message">{ error && (<div>{error}</div>) }</div>
       <div className="form-grid">
           <form className="form-container" onSubmit={saveUserData}>
             <input type="email" placeholder="Email" className="form-input user" onChange={ (e) => setEmail(e.target.value)} value={email}></input>
