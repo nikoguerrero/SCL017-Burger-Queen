@@ -1,6 +1,7 @@
-import Login from './components/Login';
+import Login from './components/Login/Login';
 import Menu from './components/Menu';
-import Navbar from './components/Navbar';
+import Navbar from './components/Navbar/Navbar';
+import Breakfast from './components/Breakfast/Breakfast';
 
 import {
   BrowserRouter as Router,
@@ -8,7 +9,8 @@ import {
   Route
 } from "react-router-dom";
 
-function App() {
+
+const App = () => {
   return (
     <div>
       {/* <h1>Ñami Town</h1> */}
@@ -20,6 +22,7 @@ function App() {
           <Route path="/menu">
             <Menu />
             <Navbar />
+            <Breakfast />
           </Route>
         </Switch>
       </Router>
