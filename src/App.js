@@ -23,7 +23,6 @@ const App = () => {
           <Route path="/menu">
             <Menu />
             <Navbar />
-            <Breakfast />
             {/* <Order /> */}
           </Route>
         </Switch>

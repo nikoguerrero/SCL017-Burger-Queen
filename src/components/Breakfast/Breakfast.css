@@ -1,7 +1,8 @@
 
 .breakfast-container{
+  grid-column: 1;
   display: flex;
-  width: 65%;
+  width: 90%;
   height: 1300px;
 }
 

@@ -1,7 +1,7 @@
 import React from 'react';
-import './Order.css';
 
 const Order = () => {
+  const { order, addToOrder, removeFromOrder } = props;
 
   const orderItems = order.map((item) => (
     <div key={item.id}>
@@ -9,12 +9,6 @@ const Order = () => {
       <input type="submit" value="remove" onClick={() => removeFromOrder(item)} />
     </div>
   ));
-
-  const removeFromOrder = (item) => {
-    let hardCopy = [...order];
-    hardCopy = hardCopy.filter((orderItem) => orderItem.id !== item.id);
-    setOrder(hardCopy);
-  };
 
   return (
     <div className="order-container">
