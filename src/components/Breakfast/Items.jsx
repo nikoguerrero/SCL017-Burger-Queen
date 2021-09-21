@@ -1,15 +1,19 @@
 import React from 'react';
+import './Breakfast.css';
 
-export default function Items(props) {
-  const { item, addToOrder } = props;
+export default function Main(props) {
+  const { items, addToOrder } = props;
+  const menuItems = items.map((item) => (
+    <button key={item.id} className="food-btn" onClick={() => addToOrder(item)}>
+    <img src={item.image} alt="food"></img>
+    <div> {item.name}</div>
+    <div> $ {item.price.toFixed(2)}</div>
+  </button>
+  ));
 
   return (
-    <div>
-      <button className="food-btn" onClick={() => addToOrder(item)}>
-        <img src={item.image} alt="food"></img>
-        <div> {item.name}</div>
-        <div> $ {item.price}</div>
-      </button>
-    </div>
+    <main className="breakfast-grid">
+        {menuItems}
+    </main>
   );
 }
