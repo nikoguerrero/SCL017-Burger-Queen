@@ -1,13 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './Login.css'; 
 import { auth } from '../../firebase';
 import { withRouter } from 'react-router-dom';
 import toggleSwitch from './images/toggleswitch.png';
 
 const Login = (props) => {
-  const [email, setEmail] = React.useState('');
-  const [password, setPassword] = React.useState('');
-  const [error, setError] = React.useState(null);
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [error, setError] = useState(null);
 
   const saveUserData = (e) => {
     e.preventDefault();

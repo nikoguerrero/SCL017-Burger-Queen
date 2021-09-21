@@ -46,3 +46,7 @@
   color: #878787;
   font-size: 1.2rem;
 }
+
+.order {
+  grid-row: 1;
+}

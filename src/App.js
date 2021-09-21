@@ -1,7 +1,8 @@
 import Login from './components/Login/Login';
-import Menu from './components/Menu';
+import Menu from './components/Menu/Menu';
 import Navbar from './components/Navbar/Navbar';
 import Breakfast from './components/Breakfast/Breakfast';
+// import Order from './components/Order/Order';
 
 import {
   BrowserRouter as Router,
@@ -23,6 +24,7 @@ const App = () => {
             <Menu />
             <Navbar />
             <Breakfast />
+            {/* <Order /> */}
           </Route>
         </Switch>
       </Router>

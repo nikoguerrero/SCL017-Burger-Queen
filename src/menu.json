@@ -2,21 +2,25 @@
 {
   "breakfast": [
     {
+      "id": "1",
       "name": "Black Tea",
       "image": "https://firebasestorage.googleapis.com/v0/b/nami-town.appspot.com/o/icons8-tea-100.png?alt=media&token=e9980761-984a-4d46-837d-fb418064c03c",
-      "price": "2.00"
+      "price": "2.00" 
     },
     {
+      "id": "2",
       "name": "Latte",
       "image": "https://img.icons8.com/dusk/100/000000/espresso-cup.png",
       "price": "7.00"
     },
     {
+      "id": "3",
       "name": "Capuccino",
       "image": "https://img.icons8.com/dusk/100/000000/cafe.png",
       "price": "5.00"
     },
     {
+      "id": "4",
       "name": "Omelette",
       "image": "https://img.icons8.com/dusk/100/000000/omlette.png",
       "price": "10.00"

@@ -1,0 +1,12 @@
+.menu-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+.img-title {
+  display: flex;
+  justify-content: center;
+  height: 100%;
+  margin-top: 2%;
+  margin-bottom: -10%;
+}
