@@ -82,3 +82,16 @@
   position: absolute;
   left: 30%;
 }
+
+.send-btn {
+  width: 50%;
+  height: 10%;
+  margin: 20% auto;
+  background: var(--clr-redish);
+  border: none;
+  box-shadow: 24px 24px 64px rgba(252, 240, 232, 0.96);
+  border-radius: 15px;
+  font-family: 'Fredoka One';
+  font-size: 1.5rem;
+  color: white;
+}

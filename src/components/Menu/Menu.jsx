@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import './Menu.css'
 import title from './images/apptitle.png'; 
 import Order from '../Order/Order';

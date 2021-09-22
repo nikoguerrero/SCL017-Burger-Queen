@@ -7,13 +7,42 @@
 }
 
 .waiter-name, .table-number {
+  display: flex;
+  flex-direction: row;
   height: 53px;
   background: #FFFFFF;
   border-radius: 30px 0 0 30px;
   margin: 3%;
   margin-right: 0;
-  font-size: 1.4rem;
-  padding-left: 10%;
-  padding-top: 5%;
+  font-size: 1.5rem;
+  text-align: center;
+  vertical-align: middle;
+  line-height: 53px;
+  padding-left: 6%;
   color: var(--clr-redish);
+}
+
+.name-text {
+  position: absolute;
+  right: 5%;
+  color: black;
+}
+
+.label {
+  color: white;
+}
+
+.table-data {
+  display: flex;
+  flex-direction: row;
+}
+
+.select-control {
+  height: 5px !important;
+  position: absolute !important;
+  right: 0% !important;
+  width: 15%!important;
+  height: 3.5% !important;
+  line-height: 40px !important;
+  border: 0;
 }

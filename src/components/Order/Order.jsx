@@ -28,6 +28,7 @@ export default function Order(props) {
             ${totalOrder}</div>
           </div>
         </div>
+        <button className="send-btn">SEND TO KITCHEN</button>
     </div>
   )
 };
