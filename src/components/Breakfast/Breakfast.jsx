@@ -13,7 +13,7 @@ const Breakfast = (props) => {
         <p className="text-hour">
           From 8AM to 11AM
         </p>
-        <div className="breakfast-grid">
+        <div>
           <Items items={items} addToOrder={addToOrder}></Items>
         </div>
       </div>
