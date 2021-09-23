@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import './Navbar.scss'; 
 
 const Navbar = (props) => {
@@ -7,22 +7,22 @@ const Navbar = (props) => {
     <div className="nav">
       <ul className="nav__list">
         <li className="nav__item">
-          <a href="/#">
+          <a onClick={() => setCategory('recommendations')}>
             <p className="nav__itemlabel">RECOMMENDATIONS</p>
           </a>
         </li>
         <li className="nav__item">
-          <a onClick={() => {console.log('clicked breakfast'); setCategory('breakfast')}}>
+          <a onClick={() => setCategory('breakfast')}>
             <p className="nav__itemlabel">BREAKFAST</p>
           </a>
         </li>
         <li className="nav__item">
-          <a onClick={() => {console.log('clicked sandwiches'); setCategory('sandwiches')}}>
+          <a onClick={() => setCategory('sandwiches')}>
             <p className="nav__itemlabel">SANDWICHES</p>
           </a>
         </li>
         <li className="nav__item">
-          <a onClick={() => {console.log('clicked drinks'); setCategory('drinks')}}>
+          <a onClick={() => setCategory('drinks')}>
             <p className="nav__itemlabel">DRINKS</p>
           </a>
         </li>

@@ -1,15 +1,9 @@
 import React from 'react';
-import foodItems from '../../menu.json';
 import './Menu.css';
 import Items from './Items';
 
 const Menu = (props) => {
-  const { addToOrder, category } = props;
-  const items = foodItems.breakfast;
-  // const recommendations = [];
-  // for (const recommendation of Menu.recommendations) {
-  //   recommendations.push(Menu[recommendation.menuName][recommendation.index]);
-  // }
+  const { addToOrder, items } = props;
 
   return(
     <div className="menu-container">
@@ -18,7 +12,7 @@ const Menu = (props) => {
           From 8AM to 11AM
         </p>
         <div>
-          <Items items={items} addToOrder={addToOrder} category={category}></Items>
+          <Items items={items} addToOrder={addToOrder}></Items>
         </div>
       </div>
     </div>

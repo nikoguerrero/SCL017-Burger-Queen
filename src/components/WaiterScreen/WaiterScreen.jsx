@@ -1,14 +1,16 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './WaiterScreen.css'
 import title from './images/apptitle.png'; 
 import Order from '../Order/Order';
 import Waiter from '../Waiter/Waiter';
 import Menu from '../Menu/Menu';
 import Navbar from '../Navbar/Navbar';
+import foodItems from '../../menu.json';
 
 export default function WaiterScreen() {
   const [order, setOrder] = useState([]);
   const [category, setCategory] = useState('breakfast');
+  const [items, setItems] = useState(foodItems[category]);
 
   const addToOrder = (item) => {
     const itemExists = order.find((orderItem) => orderItem.id === item.id);
@@ -36,6 +38,22 @@ export default function WaiterScreen() {
     }
   };
 
+  useEffect(() => {
+    switch (category) {
+      case 'recommendations': {
+        const recommendations = [];
+        for (const recommendation of foodItems.recommendations) {
+          recommendations.push(foodItems[recommendation.menuName][recommendation.index]);
+        }
+        setItems(recommendations);
+        break;
+      }
+      default:
+        setItems(foodItems[category]);
+        break;
+    }
+  }, [category]);
+
   return (
     <div className="waiter-grid">
       <div className="image-container">
@@ -43,7 +61,7 @@ export default function WaiterScreen() {
       </div>
       <Menu
         addToOrder={addToOrder}
-        category={category}
+        items={items}
       ></Menu>
       <Waiter></Waiter>
       <Order
