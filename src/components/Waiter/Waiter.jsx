@@ -37,10 +37,12 @@ export default function Waiter() {
         color: isFocused ? 'white' : 'grey',
         border: 0,
         boxShadow: 'none',
+    }),
+    singleValue: provided => ({
+      ...provided,
+      marginLeft: 60
     })
   };
-  
-  console.log(name.name);
   
   return (
     <Fragment>

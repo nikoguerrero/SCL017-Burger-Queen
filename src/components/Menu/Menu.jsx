@@ -9,14 +9,29 @@ export default function Menu() {
   const [order, setOrder] = useState([]);
 
   const addToOrder = (item) => {
-    // console.log(item);
-    setOrder([...order, item]);
+    const itemExists = order.find((orderItem) => orderItem.id === item.id);
+    if (itemExists) {
+      setOrder(
+        order.map((orderItem) => 
+        orderItem.id === item.id ? { ...itemExists, qty: itemExists.qty + 1 } : orderItem 
+        )
+      );
+    } else {
+      setOrder([...order, { ...item, qty: 1 }]);
+    }
   };
 
   const removeFromOrder = (item) => {
-    let hardCopy = [...order];
-    hardCopy = hardCopy.filter((orderItem) => orderItem.id !== item.id);
-    setOrder(hardCopy);
+    const itemExists = order.find((orderItem) => orderItem.id === item.id);
+    if (itemExists.qty === 1) {
+      setOrder(order.filter((orderItem) => orderItem.id !== item.id))
+    } else {
+      setOrder(
+        order.map((orderItem) => 
+        orderItem.id === item.id ? { ...itemExists, qty: itemExists.qty - 1 } : orderItem 
+      )
+      )
+    }
   };
 
   return (

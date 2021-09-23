@@ -3,13 +3,14 @@ import './Order.css';
 
 export default function Order(props) {
   const { order, removeFromOrder } = props;
-  const totalValue = order.reduce((total, { price = 0 }) => total + price, 0);
+  const totalValue = order.reduce((total, value) => total + value.qty * value.price, 0);
+  console.log(totalValue);
   const totalOrder = totalValue.toFixed(2);
 
   const orderItems = order.map((item) => (
     <div key={item.id} className="food-items">
-      <input type="submit" value="X" onClick={() => removeFromOrder(item)} className="remove-btn"/>{`${item.name}`}
-      <div className="item-price">{`$${item.price.toFixed(2)}`}</div>
+      <input type="submit" value="X" onMouseUp={() => removeFromOrder(item)} className="remove-btn"/>{`${item.name}`}
+      <div className="item-price">{item.qty > 1 ? item.qty + ' x ' : ''}{`$${item.price.toFixed(2)}`}</div>
     </div>
   ));
 
