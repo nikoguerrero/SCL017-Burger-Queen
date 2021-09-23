@@ -2,18 +2,24 @@
 .menu-container{
   grid-column: 1;
   display: flex;
-  /* width: 90%; */
   grid-row: 2/-1;
+  
 }
 
 .menu-box {
   display: grid;
   grid-template-rows: fit-content(30px) 2fr;
   width: 100%;
-  /* height: 1200px; */
-  /* margin: 20px; */
   margin-top: 2%;
   background-color: white;
+  overflow-y: scroll;
+  box-sizing: content-box;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.menu-box::-webkit-scrollbar {
+  display: none;
 }
 
 .text-hour {
@@ -23,16 +29,19 @@
   color: #878787;
   text-align: center;
   margin-top: 5%;
+  height: 29px;
 }
 
 .menu-grid{
   display: flex;
+  flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-evenly;
   row-gap: 1.5em;
-  margin: 20% auto auto;
+  margin: 5% auto auto;
   align-items: center;
   width: 100%;
+  padding-bottom: 20%;
 }
 
 .food-btn {

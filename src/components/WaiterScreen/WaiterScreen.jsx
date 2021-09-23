@@ -8,9 +8,24 @@ import Navbar from '../Navbar/Navbar';
 import foodItems from '../../menu.json';
 
 export default function WaiterScreen() {
+  const recommendations = [];
+  for (const recommendation of foodItems.recommendations) {
+    recommendations.push(foodItems[recommendation.menuName][recommendation.index]);
+  }
+
+  const getMenuItems = (category) => {
+    switch (category) {
+      case 'recommendations': {
+        return recommendations;
+      }
+      default:
+        return foodItems[category];
+    }
+  }
+
   const [order, setOrder] = useState([]);
-  const [category, setCategory] = useState('breakfast');
-  const [items, setItems] = useState(foodItems[category]);
+  const [category, setCategory] = useState('recommendations');
+  const [items, setItems] = useState(getMenuItems(category));
 
   const addToOrder = (item) => {
     const itemExists = order.find((orderItem) => orderItem.id === item.id);
@@ -38,21 +53,11 @@ export default function WaiterScreen() {
     }
   };
 
+
   useEffect(() => {
-    switch (category) {
-      case 'recommendations': {
-        const recommendations = [];
-        for (const recommendation of foodItems.recommendations) {
-          recommendations.push(foodItems[recommendation.menuName][recommendation.index]);
-        }
-        setItems(recommendations);
-        break;
-      }
-      default:
-        setItems(foodItems[category]);
-        break;
-    }
+    setItems(getMenuItems(category));
   }, [category]);
+
 
   return (
     <div className="waiter-grid">
@@ -62,6 +67,7 @@ export default function WaiterScreen() {
       <Menu
         addToOrder={addToOrder}
         items={items}
+        category={category}
       ></Menu>
       <Waiter></Waiter>
       <Order

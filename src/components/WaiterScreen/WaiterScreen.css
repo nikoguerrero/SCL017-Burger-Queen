@@ -3,6 +3,7 @@
   grid-template-columns: fit-content(65%) 1fr;
   grid-template-rows: fit-content(20%) 1fr 3fr;
   height: 100vh;
+  position: fixed;
 }
 
 .image-container {
