@@ -28,24 +28,101 @@
   ],
   "sandwiches": [
     {
-      "name": "Veggie Burger",
-      "image": "",
-      "price": "2.00"
+      "name": "Black bean Burger",
+      "image": "https://firebasestorage.googleapis.com/v0/b/nami-town.appspot.com/o/blackbeanburger.png?alt=media&token=cbc9569f-dc1d-4311-86f2-85b39378b734",
+      "price": 10.00
     },
     {
-      "name": "Vegetarian Burger",
-      "image": "",
-      "price": "7.00"
+      "name": "Lentil Burger",
+      "image": "https://firebasestorage.googleapis.com/v0/b/nami-town.appspot.com/o/lentilburger.png?alt=media&token=1ce51ae0-d1ab-4b77-b891-cb86b0f48b24",
+      "price": 7.00
     },
     {
       "name": "Soy Burger",
-      "image": "",
-      "price": "5.00"
+      "image": "https://firebasestorage.googleapis.com/v0/b/nami-town.appspot.com/o/icons8-hamburger-100.png?alt=media&token=4b1a9dae-8dc3-4dd4-9019-12a07796f367",
+      "price": 5.00
     },
     {
-      "name": "Mushroom Burger",
+      "name": "Egg Sandwich",
+      "image": "https://firebasestorage.googleapis.com/v0/b/nami-town.appspot.com/o/icons8-sandwich-with-fried-egg-100.png?alt=media&token=0dc02874-bc38-4e18-8640-e71071b369b5",
+      "price": 5.0
+    },
+    {
+      "name": "Vegan Pizza",
+      "image": "https://firebasestorage.googleapis.com/v0/b/nami-town.appspot.com/o/icons8-salami-pizza-100.png?alt=media&token=403d9aa2-4305-4cc7-ba2d-0baa309d58c0",
+      "price": 10.00
+    },
+    {
+      "name": "Vegan Nuggets",
+      "image": "https://firebasestorage.googleapis.com/v0/b/nami-town.appspot.com/o/icons8-chicken-nugget-100.png?alt=media&token=84ec1df2-0525-4b35-a3d7-d5d0ff7f0aad",
+      "price": 5.00
+    },
+    {
+      "name": "French Fries",
+      "image": "https://firebasestorage.googleapis.com/v0/b/nami-town.appspot.com/o/frenchfries.png?alt=media&token=cf087366-c993-4d74-9b65-4fd5bfff09ff",
+      "price": 5.0
+    },
+    {
+      "name": "Extra Cheese",
+      "image": "https://firebasestorage.googleapis.com/v0/b/nami-town.appspot.com/o/icons8-cheese-100.png?alt=media&token=2da5e445-ba03-4dbd-957f-fed2bb28eef8",
+      "price": 1.00
+    },
+    {
+      "name": "Eggs",
       "image": "",
-      "price": "10.00"
+      "price": 1.00
+    }
+  ],
+  "drinks": [
+    {
+      "name": "Juice",
+      "image": "",
+      "price": 4.00
+    },
+    {
+      "name": "Soda",
+      "image": "",
+      "price": 2.00
+    },
+    {
+      "name": "Water 500ml",
+      "image": "",
+      "price": 1.00
+    },
+    {
+      "name": "Water 750ml",
+      "image": "",
+      "price": 2.00
+    },
+    {
+      "name": "Milkshake",
+      "image": "",
+      "price": 5.00
+    },
+    {
+      "name": "Iced Coffeee",
+      "image": "https://firebasestorage.googleapis.com/v0/b/nami-town.appspot.com/o/icons8-coffee-64.png?alt=media&token=b1beb1e3-5c0d-46be-bbf5-50cb09b819cd",
+      "price": 1.00
+    },
+    {
+      "name": "Beer",
+      "image": "https://img.icons8.com/dusk/64/000000/beer.png",
+      "price": 3.00
+    },
+    {
+      "name": "Wine",
+      "image": "https://img.icons8.com/dusk/64/000000/wine-glass.png",
+      "price": 4.00
+    }
+  ],
+  "recommendations": [
+    {
+      "menuName": "breakfast",
+      "index": 1
+    },
+    {
+      "menuName": "drinks",
+      "index": 5
     }
   ]
 }

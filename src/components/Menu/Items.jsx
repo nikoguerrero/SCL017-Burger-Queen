@@ -1,5 +1,5 @@
 import React from 'react';
-import './Breakfast.css';
+import './Menu.css';
 
 export default function Main(props) {
   const { items, addToOrder } = props;
@@ -12,7 +12,7 @@ export default function Main(props) {
   ));
 
   return (
-    <main className="breakfast-grid">
+    <main className="menu-grid">
         {menuItems}
     </main>
   );

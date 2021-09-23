@@ -1,53 +1,28 @@
-import React, { useState } from 'react';
-import './Menu.css'
-import title from './images/apptitle.png'; 
-import Order from '../Order/Order';
-import Waiter from '../Waiter/Waiter';
-import Breakfast from '../Breakfast/Breakfast';
+import React from 'react';
+import foodItems from '../../menu.json';
+import './Menu.css';
+import Items from './Items';
 
-export default function Menu() {
-  const [order, setOrder] = useState([]);
+const Menu = (props) => {
+  const { addToOrder, category } = props;
+  const items = foodItems.breakfast;
+  // const recommendations = [];
+  // for (const recommendation of Menu.recommendations) {
+  //   recommendations.push(Menu[recommendation.menuName][recommendation.index]);
+  // }
 
-  const addToOrder = (item) => {
-    const itemExists = order.find((orderItem) => orderItem.id === item.id);
-    if (itemExists) {
-      setOrder(
-        order.map((orderItem) => 
-        orderItem.id === item.id ? { ...itemExists, qty: itemExists.qty + 1 } : orderItem 
-        )
-      );
-    } else {
-      setOrder([...order, { ...item, qty: 1 }]);
-    }
-  };
-
-  const removeFromOrder = (item) => {
-    const itemExists = order.find((orderItem) => orderItem.id === item.id);
-    if (itemExists.qty === 1) {
-      setOrder(order.filter((orderItem) => orderItem.id !== item.id))
-    } else {
-      setOrder(
-        order.map((orderItem) => 
-        orderItem.id === item.id ? { ...itemExists, qty: itemExists.qty - 1 } : orderItem 
-      )
-      )
-    }
-  };
-
-  return (
-    <div className="menu-grid">
-      <div className="image-container">
-      <img src= { title } alt="app name" className="img-title"></img>
+  return(
+    <div className="menu-container">
+      <div className="menu-box">
+        <p className="text-hour">
+          From 8AM to 11AM
+        </p>
+        <div>
+          <Items items={items} addToOrder={addToOrder} category={category}></Items>
+        </div>
       </div>
-      <Breakfast
-        addToOrder={addToOrder}
-      ></Breakfast>
-      <Waiter></Waiter>
-      <Order
-        order={order}
-        addToOrder={addToOrder}
-        removeFromOrder={removeFromOrder}
-      ></Order>
     </div>
   )
-}
+};
+
+export default Menu;

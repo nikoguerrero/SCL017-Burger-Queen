@@ -1,7 +1,6 @@
 import { auth } from './firebase';
 import Login from './components/Login/Login';
-import Menu from './components/Menu/Menu';
-import Navbar from './components/Navbar/Navbar';
+import WaiterScreen from './components/WaiterScreen/WaiterScreen';
 import {
   BrowserRouter as Router,
   Switch,
@@ -31,8 +30,8 @@ const App = () => {
             <Login />
           </Route>
           <Route path="/menu">
-            <Menu />
-            <Navbar />
+            <WaiterScreen />
+            {/* <Navbar /> */}
           </Route>
         </Switch>
       </Router>
