@@ -1,0 +1,86 @@
+.modal{
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  grid-template-rows: 1fr 2fr 1fr; 
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0,0,0,0.25);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  z-index: 10;
+  overflow-y: scroll;
+  position: fixed;
+}
+
+.modal-content{
+  grid-column: 2;
+  grid-row: 2;
+  width: 70%;
+  margin: auto;
+  padding: 1% 2% 2% 2%;
+  max-width:100%;
+  background-color: #ffff;
+  border-radius: 20px;
+  z-index: 11; 
+}
+
+.header {
+  display:flex;
+  cursor: pointer;
+  flex-direction: row; 
+  justify-content: flex-start;
+  height:60px;
+}
+
+.info-container {
+  display: flex;
+}
+
+.order-info {
+  padding-left: 0%;
+  width: 85%;
+}
+
+.footer {
+  display:flex;
+  cursor: pointer;
+  flex-direction: row; 
+  justify-content: space-evenly;
+}
+
+.btn-yes, .btn-no {
+  width: 150px;
+  height: 71px;
+  padding: 5px;
+  cursor: pointer;
+  /* align-self: flex-end; */
+  background-color: var(--clr-reddish);
+  border: none;
+  color: white;
+  font-family: 'Fredoka One';
+  font-size: 1.3rem;
+  /* font-weight: 600; */
+  display: block;
+  margin: 5%;
+  text-align: center;
+  border-radius: 20px;
+}
+
+.btn-yes {
+
+}
+
+.btn-no {
+  background-color: #878787;
+}
+
+.display-block {
+  display: block;
+}
+
+.display-none {
+  display: none;
+}

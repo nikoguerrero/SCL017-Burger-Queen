@@ -101,7 +101,7 @@
   /* min-height: 3.125rem; */
   width: 400px;
   height: 63px;
-  background-color: var(--clr-redish);
+  background-color: var(--clr-reddish);
   border-radius: 20px;
   color: var(--clr-secondary);
   border: 0px;
@@ -151,7 +151,7 @@
     justify-content: center;
     font-family: 'Fredoka One';
     font-size: 2rem;
-    color: var(--clr-redish);
+    color: var(--clr-reddish);
   }
 
   .error-message {

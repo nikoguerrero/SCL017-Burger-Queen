@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './Order.css';
+import Modal from '../Modal/Modal';
 
 export default function Order(props) {
   const { order, removeFromOrder } = props;
   const totalValue = order.reduce((total, value) => total + value.qty * value.price, 0);
-  console.log(totalValue);
   const totalOrder = totalValue.toFixed(2);
 
   const orderItems = order.map((item) => (
@@ -13,6 +13,11 @@ export default function Order(props) {
       <div className="item-price">{item.qty > 1 ? item.qty + ' x ' : ''}{`$${item.price.toFixed(2)}`}</div>
     </div>
   ));
+
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
 
   return (
     <div className="order-container">
@@ -29,7 +34,9 @@ export default function Order(props) {
             ${totalOrder}</div>
           </div>
         </div>
-        <button className="send-btn">SEND TO KITCHEN</button>
+        <Modal show={show} onHide={handleClose}>
+        </Modal>
+        <button className="send-btn" onClick={handleShow}>SEND TO KITCHEN</button>
     </div>
   )
 };

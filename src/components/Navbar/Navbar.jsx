@@ -16,6 +16,7 @@ const Navbar = (props) => {
 
 
   return (
+    /* eslint-disable jsx-a11y/anchor-is-valid */
     <div className="nav">
       <ul className="nav__list">
         <li className="nav__item nav__item-active" onClick={() => setCategory('recommendations')}> 
