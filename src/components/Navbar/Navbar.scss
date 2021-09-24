@@ -45,15 +45,25 @@ body {
     font-weight: 800;
     text-align: center;
     transition: all 200ms ease-in;
+    padding: 2.1rem 1.5rem;
+    cursor: pointer;
 
     a {
       color: var(--clr-redish);
       text-decoration: none;
+      cursor:pointer;
+    }
 
-      &:hover {
-        color: var(--clr-gray500);
+    &-active {
+      color: white;
+      background-color: #fad3ba;
+      padding: 2.3rem;
+      
+      p {
+        
       }
     }
+    
   }
 }
 
