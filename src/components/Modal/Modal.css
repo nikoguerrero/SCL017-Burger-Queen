@@ -7,7 +7,7 @@
   left: 0;
   height: 100%;
   width: 100%;
-  background-color: rgba(0,0,0,0.25);
+  background-color: rgba(83, 83, 83, 0.25);
   backdrop-filter: blur(5px);
   -webkit-backdrop-filter: blur(5px);
   z-index: 10;
@@ -18,16 +18,19 @@
 .modal-content{
   grid-column: 2;
   grid-row: 2;
-  display: grid;
-  grid-template-rows: 0.8fr 3fr 1.2fr; 
-  width: 100%;
-  height: 100%;
-  margin: auto;
-  /* padding: 1% 2% 2% 2%; */
   max-width:100%;
   background-color: #ffff;
   border-radius: 20px;
   z-index: 11; 
+}
+
+.modal-wrapper {
+  display: grid;
+  grid-template-rows: 0.8fr 3fr 1.2fr;
+  width: 100%;
+  height: 100%;
+  margin: auto;
+  /* padding: 1% 2% 2% 2%; */
 }
 
 .info-container {
@@ -45,7 +48,7 @@
   display: flex;
   align-items: center;
   text-align: center;
-  color: #878787;
+  color: var(--clr-text);
   justify-content: center;
   /* padding: 0% 15%; */
 }
@@ -55,7 +58,7 @@
   width: 100%;
   margin: 6%;
   font-size: 1.5rem;
-  color: #878787;
+  color: var(--clr-text);
 }
 
 .total {
@@ -88,25 +91,19 @@
   height: 80px;
   padding: 5px;
   cursor: pointer;
-  /* align-self: flex-end; */
   background-color: var(--clr-reddish);
   border: none;
   color: white;
   font-family: 'Fredoka One';
   font-size: 1.7rem;
-  /* font-weight: 600; */
   display: block;
   margin: 5% 0%;
   text-align: center;
   border-radius: 15px;
 }
 
-.btn-yes {
-
-}
-
 .btn-no {
-  background-color: #878787;
+  background-color: var(--clr-text);
 }
 
 .display-block {
@@ -115,4 +112,43 @@
 
 .display-none {
   display: none;
+}
+
+.confirmed-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+}
+
+.icon-container {
+  display: flex;
+  justify-content: center;
+  margin: 5%;
+}
+
+.confirmed-icon {
+  height: 150px;
+}
+
+.text-container {
+  font-size: 2rem;
+  font-family: 'Montserrat';
+  font-weight: bold;
+  color: rgb(119, 190, 173);
+  text-align: center;
+  margin: 5% 20%;
+}
+
+.close-modal-btn {
+  align-self: center;
+  width: 30%;
+  height: 10%;
+  margin-top: 10%;
+  font-size: 1.6rem;
+  font-family: 'Fredoka One';
+  background: var(--clr-text);
+  color: white;
+  border: none;
+  border-radius: 15px;
 }

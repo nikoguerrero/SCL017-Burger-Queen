@@ -27,9 +27,6 @@ const Login = (props) => {
       console.log(email, password);
       const res = await auth.signInWithEmailAndPassword(email, password);
       console.log(res.user);
-      // setEmail('');
-      // setPassword('');
-      // setError(null);
       props.history.push('/menu');
     } catch (error) {
       console.log(error);

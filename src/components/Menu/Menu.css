@@ -24,9 +24,9 @@
 
 .text-hour {
   grid-row: 1;
-  font-family: Montserrat;
+  font-family: 'Montserrat';
   font-size: 1.5rem;
-  color: #878787;
+  color:var(--clr-text);
   text-align: center;
   margin-top: 5%;
   height: 29px;
@@ -53,7 +53,7 @@
   box-shadow: 24px 24px 64px rgba(252, 240, 232, 0.96);
   border: none;
   font-family: 'Montserrat';
-  color: #878787;
+  color: var(--clr-text);
   font-size: 1.2rem;
 }
 

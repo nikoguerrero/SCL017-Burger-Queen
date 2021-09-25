@@ -32,9 +32,11 @@ export default function Order(props) {
             ${totalOrder}</div>
           </div>
         </div>
-        <Modal show={show} onHide={handleClose} order={order} totalOrder={totalOrder} table={table}>
-        </Modal>
         <button className="send-btn" onClick={handleShow}>SEND TO KITCHEN</button>
+        {show ? 
+        <Modal onHide={handleClose} order={order} totalOrder={totalOrder} table={table}>
+        </Modal>
+        : null}
     </div>
   )
 };
