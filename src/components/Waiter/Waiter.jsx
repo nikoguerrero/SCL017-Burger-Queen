@@ -4,8 +4,9 @@ import { auth } from '../../firebase';
 import { db } from '../../firebase';
 import Select from 'react-select';
 
-export default function Waiter() {
+export default function Waiter(props) {
   const [name, setName] = useState([]);
+  const { setTable } = props;
 
   useEffect(() => {
     const getData = async () => {
@@ -52,7 +53,12 @@ export default function Waiter() {
         </div>
           <div type="text" className="table-number">
             <div className="table-text">Table N° </div>
-          <Select className="select-control" options={options} styles={style}/>
+          <Select className="select-control" 
+          options={options} 
+          styles={style}
+          // defaultValue={table}
+          onChange={setTable}
+          />
         </div>
       </div>
     </Fragment>

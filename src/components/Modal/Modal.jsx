@@ -2,25 +2,8 @@ import React from 'react';
 import './Modal.css';
 import { db, auth, firebase } from '../../firebase';
 
-const Modal = ({ show, onHide, order, totalOrder }) => {
-  const sendOrder = async (order) => {
-    const orderSent = order.map((item) => {
-      const { id, name, qty } = item;
-      return { id, name, qty };
-    });
-    console.log(orderSent);
-    const waiterId = auth.currentUser.uid;
-    const orderDate = firebase.firestore.FieldValue.serverTimestamp();
-    await db.collection('orders').add({
-      waiterId,
-      orderDate,
-      orderNumber: 1,
-      tableNumber: '',
-      orderItems: orderSent,
-      totalOrder: totalOrder,
-      status: 'order sent'
-    });
-  }
+const Modal = (props) => {
+  const { show, onHide, order, totalOrder, table } = props;
   const showHideClassName = show ? "modal display-block" : "modal display-none";
   const confirmedOrder = order.map((item) => (
     <div key={item.id} className="food-items">
@@ -28,6 +11,24 @@ const Modal = ({ show, onHide, order, totalOrder }) => {
       <div className="item-price">{item.qty > 1 ? item.qty + ' x ' : ''}{`$${item.price.toFixed(2)}`}</div>
     </div>
   ));
+
+  const sendOrder = async (order) => {
+    const orderSent = order.map((item) => {
+      const { id, name, qty } = item;
+      return { id, name, qty };
+    });
+    const waiterId = auth.currentUser.uid;
+    const orderDate = firebase.firestore.FieldValue.serverTimestamp();
+    await db.collection('orders').add({
+      waiterId,
+      orderDate,
+      orderNumber: 1,
+      tableNumber: table.value,
+      orderItems: orderSent,
+      totalOrder: totalOrder,
+      status: 'Waiting'
+    });
+  }
 
   return (
     <div className={showHideClassName}>

@@ -26,6 +26,7 @@ export default function WaiterScreen() {
   const [order, setOrder] = useState([]);
   const [category, setCategory] = useState('recommendations');
   const [items, setItems] = useState(getMenuItems(category));
+  const [table, setTable] = useState(null);
 
   const addToOrder = (item) => {
     const itemExists = order.find((orderItem) => orderItem.id === item.id);
@@ -69,11 +70,14 @@ export default function WaiterScreen() {
         items={items}
         category={category}
       ></Menu>
-      <Waiter></Waiter>
+      <Waiter
+        setTable={setTable}
+      ></Waiter>
       <Order
         order={order}
         addToOrder={addToOrder}
         removeFromOrder={removeFromOrder}
+        table={table}
       ></Order>
       <Navbar
         setCategory={setCategory}
