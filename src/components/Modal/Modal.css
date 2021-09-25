@@ -1,7 +1,7 @@
 .modal{
   display: grid;
-  grid-template-columns: 1fr 2fr 1fr;
-  grid-template-rows: 1fr 2fr 1fr; 
+  grid-template-columns: 1fr 3fr 1fr;
+  grid-template-rows: 1fr 3fr 1fr; 
   position: absolute;
   top: 0;
   left: 0;
@@ -11,49 +11,81 @@
   backdrop-filter: blur(5px);
   -webkit-backdrop-filter: blur(5px);
   z-index: 10;
-  overflow-y: scroll;
+  /* overflow-y: scroll; */
   position: fixed;
 }
 
 .modal-content{
   grid-column: 2;
   grid-row: 2;
-  width: 70%;
+  display: grid;
+  grid-template-rows: 0.8fr 3fr 1.2fr; 
+  width: 100%;
+  height: 100%;
   margin: auto;
-  padding: 1% 2% 2% 2%;
+  /* padding: 1% 2% 2% 2%; */
   max-width:100%;
   background-color: #ffff;
   border-radius: 20px;
   z-index: 11; 
 }
 
-.header {
-  display:flex;
-  cursor: pointer;
-  flex-direction: row; 
-  justify-content: flex-start;
-  height:60px;
+.info-container {
+  grid-row: 2;
+  display: flex;
+  flex-direction: column;
+  padding: 0% 20%;
+  justify-content: space-between;
 }
 
-.info-container {
+.header {
+  font-family: 'Montserrat';
+  font-size: 2.5rem;
+  line-height: 44px;
   display: flex;
+  align-items: center;
+  text-align: center;
+  color: #878787;
+  justify-content: center;
+  /* padding: 0% 15%; */
 }
 
 .order-info {
-  padding-left: 0%;
-  width: 85%;
+  padding-top: 10%;
+  width: 100%;
+  margin: 6%;
+  font-size: 1.5rem;
+  color: #878787;
+}
+
+.total {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  color: var(--clr-reddish);
+  font-weight: bold;
+  font-size: 1.6rem;
+  margin: 15% 5%;
+}
+
+.total-info {
+  display: flex;
+  margin-right: 10%;
+  position: relative;
 }
 
 .footer {
+  grid-row: 3;
   display:flex;
   cursor: pointer;
   flex-direction: row; 
   justify-content: space-evenly;
+  margin: 0% 10%;
 }
 
 .btn-yes, .btn-no {
   width: 150px;
-  height: 71px;
+  height: 80px;
   padding: 5px;
   cursor: pointer;
   /* align-self: flex-end; */
@@ -61,12 +93,12 @@
   border: none;
   color: white;
   font-family: 'Fredoka One';
-  font-size: 1.3rem;
+  font-size: 1.7rem;
   /* font-weight: 600; */
   display: block;
-  margin: 5%;
+  margin: 5% 0%;
   text-align: center;
-  border-radius: 20px;
+  border-radius: 15px;
 }
 
 .btn-yes {
