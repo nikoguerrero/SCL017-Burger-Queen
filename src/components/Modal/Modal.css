@@ -106,14 +106,6 @@
   background-color: var(--clr-text);
 }
 
-.display-block {
-  display: block;
-}
-
-.display-none {
-  display: none;
-}
-
 .confirmed-wrapper {
   display: flex;
   flex-direction: column;
@@ -142,8 +134,8 @@
 
 .close-modal-btn {
   align-self: center;
-  width: 30%;
-  height: 10%;
+  width: 180px;
+  height: 80px;
   margin-top: 10%;
   font-size: 1.6rem;
   font-family: 'Fredoka One';

@@ -1,12 +1,25 @@
-import React, { useState } from 'react';
+import React, { useState, Fragment, useEffect } from 'react';
 import './Order.css';
 import Modal from '../Modal/Modal';
 
 export default function Order(props) {
   const { order, removeFromOrder, table } = props;
   const [show, setShow] = useState(false);
+  const [alert, setAlert] = useState(false);
+  const [tableAlert, setTableAlert] = useState(null);
+
   const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
+  const handleShow = () => {
+    if (table !== null && order.length > 0) {
+      setShow(true);
+    } else if (table === null) {
+      setAlert(true);
+      setTableAlert(true);
+    } else if (order.length === 0) {
+      setAlert(true);
+      setTableAlert(false);
+    }
+  };
   const totalValue = order.reduce((total, value) => total + value.qty * value.price, 0);
   const totalOrder = totalValue.toFixed(2);
 
@@ -16,6 +29,31 @@ export default function Order(props) {
       <div className="item-price">{item.qty > 1 ? item.qty + ' x ' : ''}{`$${item.price.toFixed(2)}`}</div>
     </div>
   ));
+
+  const AlertTable = () => (
+    <Fragment>
+      Enter table number!
+    </Fragment>
+  );
+
+  const AlertOrder = () => (
+    <Fragment>
+      Enter item(s) to the order!
+    </Fragment>
+  );
+
+  const AlertMessage = () => (
+    <div className="modal">
+      <div className="alert-container">
+        <div className="alert-text">
+        {tableAlert ? <AlertTable /> : <AlertOrder />}
+        </div>
+        <button className="close-modal-btn" onClick={() => setAlert(false)}>
+          OK
+        </button>
+      </div>
+    </div>
+  );
 
   return (
     <div className="order-container">
@@ -37,6 +75,7 @@ export default function Order(props) {
         <Modal onHide={handleClose} order={order} totalOrder={totalOrder} table={table}>
         </Modal>
         : null}
+        {alert ? <AlertMessage /> : null}
     </div>
   )
 };

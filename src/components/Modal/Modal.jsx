@@ -9,23 +9,28 @@ const Modal = (props) => {
   const [showSent, setShowSent] = useState(false);
 
   const sendOrder = async (order) => {
-    const orderSent = order.map((item) => {
-      const { id, name, qty } = item;
-      return { id, name, qty };
-    });
-    const waiterId = auth.currentUser.uid;
-    const orderDate = firebase.firestore.FieldValue.serverTimestamp();
-    await db.collection('orders').add({
-      waiterId,
-      orderDate,
-      orderNumber: 1,
-      tableNumber: table.value,
-      orderItems: orderSent,
-      totalOrder: totalOrder,
-      status: 'Waiting'
-    });
-    setShowOrder(false);
-    setShowSent(true);
+    if (table.value !== null) {
+      const orderSent = order.map((item) => {
+        const { id, name, qty } = item;
+        return { id, name, qty };
+      });
+      const waiterId = auth.currentUser.uid;
+      const orderDate = firebase.firestore.FieldValue.serverTimestamp();
+      await db.collection('orders').add({
+        waiterId,
+        orderDate,
+        orderNumber: 1,
+        tableNumber: table.value,
+        orderItems: orderSent,
+        totalOrder: totalOrder,
+        status: 'Waiting'
+      });
+      setShowOrder(false);
+      setShowSent(true);
+    } else {
+      console.log('table number is null!');
+    }
+    
   }
 
   const OrderSent = () => 

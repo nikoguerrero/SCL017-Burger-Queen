@@ -95,3 +95,26 @@
   font-size: 1.5rem;
   color: white;
 }
+
+.alert-container {
+  grid-column: 2;
+  grid-row: 2;
+  background-color: #ffff;
+  border-radius: 20px;
+  z-index: 11;
+  align-self: center;
+  height: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.alert-text {
+  text-align: center;
+  font-size: 2rem;
+  font-family: 'Montserrat';
+  color: var(--clr-reddish);
+  font-weight: bold;
+  margin-top: 10%;
+}
+
