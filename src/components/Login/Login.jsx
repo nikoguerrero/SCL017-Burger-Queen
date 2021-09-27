@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './Login.css'; 
-import { auth } from '../../firebase';
+import { auth, db } from '../../firebase';
 import { withRouter } from 'react-router-dom';
 import toggleSwitch from './images/toggleswitch.png';
 
@@ -26,8 +26,15 @@ const Login = (props) => {
     try {
       console.log(email, password);
       const res = await auth.signInWithEmailAndPassword(email, password);
-      console.log(res.user);
-      props.history.push('/menu');
+      const currentUser = auth.currentUser;
+      const userData = await db.collection('users').doc(currentUser.uid).get();
+      const data = userData.data();
+      if (data.role === 'waiter') {
+        props.history.push('/menu');
+      } else if (data.role === 'cook') {
+        props.history.push('/kitchen');
+      }
+      console.log(data);
     } catch (error) {
       console.log(error);
       switch (error.code) {

@@ -10,8 +10,8 @@ export default function Waiter(props) {
 
   useEffect(() => {
     const getData = async () => {
-      let currentUser = auth.currentUser;
-      const waitersData = await db.collection('waiters').doc(currentUser.uid).get();
+      const currentUser = auth.currentUser;
+      const waitersData = await db.collection('users').doc(currentUser.uid).get();
       const waiterName = waitersData.data();
       setName(waiterName);
     }

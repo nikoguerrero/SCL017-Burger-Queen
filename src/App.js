@@ -1,12 +1,13 @@
+import React, { useState, useEffect } from 'react';
 import { auth } from './firebase';
 import Login from './components/Login/Login';
 import WaiterScreen from './components/WaiterScreen/WaiterScreen';
+import Kitchen from './components/Kitchen/Kitchen';
 import {
   BrowserRouter as Router,
   Switch,
   Route
 } from "react-router-dom";
-import React, { useState, useEffect } from 'react';
 
 const App = () => {
 
@@ -31,8 +32,8 @@ const App = () => {
           </Route>
           <Route path="/menu">
             <WaiterScreen />
-            {/* <Navbar /> */}
           </Route>
+          <Kitchen path="/kitchen"/>
         </Switch>
       </Router>
     </div>
