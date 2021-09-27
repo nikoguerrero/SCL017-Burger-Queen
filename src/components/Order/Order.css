@@ -118,3 +118,28 @@
   margin-top: 10%;
 }
 
+@media (min-device-width: 1024px) and (max-device-width: 1366px) and (orientation:landscape)  {
+  
+  .order-container {
+    justify-content: space-evenly;
+  }
+  
+  .order {
+    grid-template-rows: 1fr 4fr 0.5fr;
+  }
+
+  .title-order {
+    margin-top: 5%;
+  }
+
+  .total-text {
+    left: 50%;
+  }
+
+  .send-btn {
+    width: 40%;
+    height: 100px;
+    margin-bottom: 40%;
+    margin-top: 8%;
+  }
+}

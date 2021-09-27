@@ -139,8 +139,14 @@
   margin-top: 10%;
   font-size: 1.6rem;
   font-family: 'Fredoka One';
-  background: var(--clr-text);
+  background: var(--clr-reddish);
   color: white;
   border: none;
   border-radius: 15px;
+}
+
+@media (min-device-width: 1024px) and (max-device-width: 1366px) and (orientation:landscape)  {
+  .alert-container {
+    height: 60%;
+  }
 }

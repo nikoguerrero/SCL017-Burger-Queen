@@ -2,12 +2,13 @@ import React, { useState, useEffect } from 'react';
 import './WaiterScreen.css'
 import title from './images/apptitle.png'; 
 import Order from '../Order/Order';
-import Waiter from '../Waiter/Waiter';
+import Table from '../Table/Table';
 import Menu from '../Menu/Menu';
 import Navbar from '../Navbar/Navbar';
 import foodItems from '../../menu.json';
+import Logout from '../Logout/Logout';
 
-export default function WaiterScreen() {
+const WaiterScreen = () => {
   const recommendations = [];
   for (const recommendation of foodItems.recommendations) {
     recommendations.push(foodItems[recommendation.menuName][recommendation.index]);
@@ -54,25 +55,24 @@ export default function WaiterScreen() {
     }
   };
 
-
   useEffect(() => {
     setItems(getMenuItems(category));
   }, [category]);
 
-
   return (
     <div className="waiter-grid">
       <div className="image-container">
-      <img src= { title } alt="app name" className="img-title"></img>
+        <img src= { title } alt="app name" className="img-title"></img>
       </div>
+      <Logout />
       <Menu
         addToOrder={addToOrder}
         items={items}
         category={category}
       ></Menu>
-      <Waiter
+      <Table
         setTable={setTable}
-      ></Waiter>
+      ></Table>
       <Order
         order={order}
         addToOrder={addToOrder}
@@ -85,3 +85,5 @@ export default function WaiterScreen() {
     </div>
   )
 }
+
+export default WaiterScreen;

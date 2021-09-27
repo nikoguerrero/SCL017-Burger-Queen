@@ -1,10 +1,10 @@
 import React, { Fragment, useState, useEffect } from 'react';
-import './Waiter.css';
+import './Table.css';
 import { auth } from '../../firebase';
 import { db } from '../../firebase';
 import Select from 'react-select';
 
-export default function Waiter(props) {
+export default function Table(props) {
   const [name, setName] = useState([]);
   const { setTable } = props;
 
@@ -30,14 +30,14 @@ export default function Waiter(props) {
     control: base => ({
       ...base,
       border: 0,
-      boxShadow: 'none',
+      boxShadow: 'none'
     }),
     option: (styles, { isFocused }) => ({
         ...styles,
         backgroundColor: isFocused ? '#F5B994' : null,
         color: isFocused ? 'white' : 'grey',
         border: 0,
-        boxShadow: 'none',
+        boxShadow: 'none'
     }),
     singleValue: provided => ({
       ...provided,
@@ -47,7 +47,7 @@ export default function Waiter(props) {
   
   return (
     <Fragment>
-      <div className="waiter-container">
+      <div className="table-container">
         <div className="waiter-name">Waiter 
           <div className="name-text">{name.name}</div>
         </div>
@@ -56,7 +56,6 @@ export default function Waiter(props) {
           <Select className="select-control" 
           options={options} 
           styles={style}
-          // defaultValue={table}
           onChange={setTable}
           />
         </div>
