@@ -29,6 +29,11 @@ const WaiterScreen = () => {
   const [items, setItems] = useState(getMenuItems(category));
   const [table, setTable] = useState(null);
 
+  const cleanOrder = () => {
+    setOrder([]);
+    setTable(null);
+  };
+
   const addToOrder = (item) => {
     const itemExists = order.find((orderItem) => orderItem.id === item.id);
     if (itemExists) {
@@ -72,12 +77,14 @@ const WaiterScreen = () => {
       ></Menu>
       <Table
         setTable={setTable}
+        cleanOrder={cleanOrder}
       ></Table>
       <Order
         order={order}
         addToOrder={addToOrder}
         removeFromOrder={removeFromOrder}
         table={table}
+        cleanOrder={cleanOrder}
       ></Order>
       <Navbar
         setCategory={setCategory}

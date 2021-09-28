@@ -3,12 +3,15 @@ import './Order.css';
 import Modal from '../Modal/Modal';
 
 export default function Order(props) {
-  const { order, removeFromOrder, table } = props;
+  const { order, removeFromOrder, table, cleanOrder } = props;
   const [show, setShow] = useState(false);
   const [alert, setAlert] = useState(false);
   const [tableAlert, setTableAlert] = useState(null);
 
-  const handleClose = () => setShow(false);
+  const handleClose = () => {
+    setShow(false);
+    cleanOrder();
+  }
   const handleShow = () => {
     if (table !== null && order.length > 0) {
       setShow(true);
@@ -20,6 +23,7 @@ export default function Order(props) {
       setTableAlert(false);
     }
   };
+
   const totalValue = order.reduce((total, value) => total + value.qty * value.price, 0);
   const totalOrder = totalValue.toFixed(2);
 
@@ -54,6 +58,8 @@ export default function Order(props) {
       </div>
     </div>
   );
+
+  
 
   return (
     <div className="order-container">

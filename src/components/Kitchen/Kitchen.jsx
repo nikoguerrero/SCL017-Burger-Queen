@@ -1,5 +1,7 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, Fragment } from 'react';
 import { auth } from '../../firebase';
+import './Kitchen.css';
+import title from '../WaiterScreen/images/apptitle.png';
 
 const Kitchen = () => {
   useEffect(() => {
@@ -11,7 +13,13 @@ const Kitchen = () => {
   }, []);
 
   return (
-    <div className="kitchen-cointainer">
+    <div className="kitchen-grid">
+       <div className="image-container">
+        <img src={ title } className="img-title"></img>
+      </div>
+      <Fragment>
+        COCINAAAA
+      </Fragment>
     </div>
   )
 }
