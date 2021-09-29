@@ -1,40 +1,34 @@
 import React, { Fragment, useState } from 'react';
 import './Ticket.css';
 import { db } from '../../firebase';
-import { useEffect } from 'react/cjs/react.development';
 
-const Tickets = () => {
-  const [data, setData] = useState([]);
-  useEffect(() => {
-    async function fetchData() {
-      const orderStatus = db.collection('orders').where('status', '==', 'waiting');
-      const orderData = await orderStatus.get();
-      const array = [];
-      for (const doc of orderData.docs) {
-        // console.log(doc.id, '=>', doc.data());
-        const element = doc.data();
-        const id = doc.id;
-        array.push({...element, id});
-        console.log(element)
-      }
-      setData(array);
-    }
-    fetchData();
-  }, []);
+const Tickets = (props) => {
+  const { data } = props;
+  const [selected, setSelected] = useState(0)
+  const [buttonText, setButtonText] = useState('START');
+  // const [state, setState] = useState({
+  //   text: 'START',
+  //   color: 'blue'
+  // });
 
-  const changeStatus = async (e) => {
+  const changeStatus = async (e, column) => {
     const orderDoc = db.collection('orders').doc(e.target.id);
     const dataOrder = (await orderDoc.get()).data();
     if (dataOrder.status === 'waiting') {
       orderDoc.update({
         status: 'in progress'
       });
+      // setButtonText('READY!')
+      if (e.target.id === column.id) {
+        setButtonText('READY!');
+      }
     } else if (dataOrder.status === 'in progress') {
       orderDoc.update({
         status: 'ready'
-      })
+      });
+    } else if (dataOrder.status === 'ready') {
+      setSelected(column.id);
     }
-    console.log(dataOrder);
   }
 
   const ticketOrder = data.map((item) => (
@@ -51,7 +45,14 @@ const Tickets = () => {
           <li>{order.qty} x {order.name}</li>
         </ul>
       ))}
-      <button className="ticket-btn" id={item.id} onClick={(e) => changeStatus(e)}>START</button>
+      <button 
+        className="ticket-btn" 
+        id={item.id} 
+        onClick={(e) => changeStatus(e, item)}
+        style={{ backgroundColor: item.id === selected ? "#CDCDCD": "" }}
+      >
+        {buttonText}
+      </button>
     </section>
   )); 
   

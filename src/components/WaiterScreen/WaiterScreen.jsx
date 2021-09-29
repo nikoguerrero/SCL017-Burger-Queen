@@ -64,6 +64,7 @@ const WaiterScreen = () => {
     setItems(getMenuItems(category));
   }, [category]);
 
+
   return (
     <div className="waiter-grid">
       <div className="image-container">
