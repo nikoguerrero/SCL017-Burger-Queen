@@ -27,10 +27,7 @@ const Modal = (props) => {
       });
       setShowOrder(false);
       setShowSent(true);
-    } else {
-      console.log('table number is null!');
-    }
-    
+    } 
   }
 
   const OrderSent = () => 

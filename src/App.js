@@ -33,7 +33,9 @@ const App = () => {
           <Route path="/menu">
             <WaiterScreen />
           </Route>
-          <Kitchen path="/kitchen"/>
+          <Route path="/kitchen">
+            <Kitchen />
+          </Route>
         </Switch>
       </Router>
     </div>

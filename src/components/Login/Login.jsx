@@ -25,7 +25,7 @@ const Login = (props) => {
   const signIn = React.useCallback(async () => {
     try {
       console.log(email, password);
-      const res = await auth.signInWithEmailAndPassword(email, password);
+      await auth.signInWithEmailAndPassword(email, password);
       const currentUser = auth.currentUser;
       const userData = await db.collection('users').doc(currentUser.uid).get();
       const data = userData.data();

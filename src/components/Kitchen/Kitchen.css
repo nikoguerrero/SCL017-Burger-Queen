@@ -1,0 +1,7 @@
+.kitchen-grid {
+  display: grid;
+  grid-template-columns: fit-content(65%) 1fr;
+  grid-template-rows: fit-content(20%) 3fr 1fr;
+  height: 100vh;
+  /* position: fixed; */
+}
