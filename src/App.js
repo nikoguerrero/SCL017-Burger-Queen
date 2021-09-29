@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, Fragment } from 'react';
 import { auth } from './firebase';
 import Login from './components/Login/Login';
 import WaiterScreen from './components/WaiterScreen/WaiterScreen';
@@ -23,7 +23,7 @@ const App = () => {
   }, []);
 
   return user !== false ? (
-    <div>
+    <Fragment>
       <Router>
         <Switch>
           <Route path="/" exact>
@@ -37,7 +37,7 @@ const App = () => {
           </Route>
         </Switch>
       </Router>
-    </div>
+    </Fragment>
   ) : (
     <p>Loading...</p>
   )

@@ -26,13 +26,13 @@
   justify-content: flex-end;
 }
 
-.logout-btn {
+/* .logout-btn {
   height: 40%;
   margin-top: 10%;
   margin-bottom: -10%;
   margin-right: 10%;
   margin-left: -10%;
-}
+} */
 
 @media (min-device-width: 1024px) and (max-device-width: 1366px) and (orientation:landscape)  {
   .img-title {

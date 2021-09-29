@@ -9,7 +9,8 @@ const KitchenBar = () => {
     navItem.forEach((link) => link.classList.remove("nav__item-active"));
     this.classList.add("nav__item-active");
   }
-  
+
+
   return (
     /* eslint-disable jsx-a11y/anchor-is-valid */
     <div className="nav">

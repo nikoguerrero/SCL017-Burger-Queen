@@ -1,10 +1,19 @@
 .order-tickets-container {
-  grid-column: 2;
+  grid-column: -1/1;
+  display: grid;
+  grid-row: 2;
+  box-sizing: content-box;
+  width: 100%;
+}
+
+.tickets-wrapper{
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   margin: 0% 5%;
   gap: 5%;
+  align-items: center;
+  width: 100%;
 }
 
 .ticket-card {

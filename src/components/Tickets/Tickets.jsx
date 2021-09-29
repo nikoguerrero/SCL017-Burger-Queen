@@ -7,7 +7,7 @@ const Tickets = () => {
   const [data, setData] = useState([]);
   useEffect(() => {
     async function fetchData() {
-      const orderStatus = db.collection('orders').where('status', '==', 'Waiting');
+      const orderStatus = db.collection('orders').where('status', '==', 'waiting');
       const orderData = await orderStatus.get();
       const array = [];
       for (const doc of orderData.docs) {
@@ -22,8 +22,23 @@ const Tickets = () => {
     fetchData();
   }, []);
 
+  const changeStatus = async (e) => {
+    const orderDoc = db.collection('orders').doc(e.target.id);
+    const dataOrder = (await orderDoc.get()).data();
+    if (dataOrder.status === 'waiting') {
+      orderDoc.update({
+        status: 'in progress'
+      });
+    } else if (dataOrder.status === 'in progress') {
+      orderDoc.update({
+        status: 'ready'
+      })
+    }
+    console.log(dataOrder);
+  }
+
   const ticketOrder = data.map((item) => (
-    <section key={item.id} className="ticket-card">
+    <section key={item.id} id={item.id} className="ticket-card">
       <div className="order-data">
         <ul className="right-data">
           <div className="table-number-order">{item.tableNumber.toUpperCase()}</div>
@@ -36,14 +51,16 @@ const Tickets = () => {
           <li>{order.qty} x {order.name}</li>
         </ul>
       ))}
-      <button className="ticket-btn">START</button>
+      <button className="ticket-btn" id={item.id} onClick={(e) => changeStatus(e)}>START</button>
     </section>
   )); 
   
   return (
     <Fragment>
       <div className="order-tickets-container">
-        {ticketOrder}
+        <div className="tickets-wrapper">
+          {ticketOrder}
+        </div>
       </div>
     </Fragment>
   )

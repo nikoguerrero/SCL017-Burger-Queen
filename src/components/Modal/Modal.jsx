@@ -25,7 +25,7 @@ const Modal = (props) => {
         tableNumber: table.value,
         orderItems: orderSent,
         totalOrder: totalOrder,
-        status: 'Waiting'
+        status: 'waiting'
       });
       setShowOrder(false);
       setShowSent(true);
