@@ -10,7 +10,6 @@ import {
 } from "react-router-dom";
 
 const App = () => {
-
   const [user, setUser] = useState(false);
 
   useEffect(() => {

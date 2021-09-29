@@ -2,4 +2,55 @@
   grid-column: 2;
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
+  margin: 0% 5%;
+  gap: 5%;
+}
+
+.ticket-card {
+  height: 614px;
+  width: 345px;
+  background: white;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+}
+
+.order-data {
+  display: flex;
+  background: grey;
+  border-radius: 15px 15px 0 0;
+  flex-direction: row;
+  justify-content: space-between;
+  color: white;
+  padding: 5%;
+  grid-row: 1;
+}
+
+.right-data {
+  flex-direction: column;
+}
+
+.table-number-order {
+  font-weight: 600;
+  font-size: 1.3rem;
+}
+
+.items-list {
+  list-style: none;
+  margin: 5% 5% 0% 5%;
+  flex-wrap: wrap;
+}
+
+.ticket-btn{
+  display: block;
+  background: var(--clr-reddish);
+  margin: auto auto 5% auto;
+  border: none;
+  width: 300px;
+  height: 65px;
+  border-radius: 15px;
+  font-family: 'Fredoka One';
+  font-size: 1.6rem;
+  color: white;
 }

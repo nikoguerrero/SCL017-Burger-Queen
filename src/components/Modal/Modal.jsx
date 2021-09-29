@@ -15,9 +15,11 @@ const Modal = (props) => {
         return { id, name, qty };
       });
       const waiterId = auth.currentUser.uid;
+      const waiterName = 'Niko';
       const orderDate = firebase.firestore.FieldValue.serverTimestamp();
       await db.collection('orders').add({
         waiterId,
+        waiterName,
         orderDate,
         orderNumber: 1,
         tableNumber: table.value,

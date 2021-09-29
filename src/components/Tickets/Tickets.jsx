@@ -22,25 +22,28 @@ const Tickets = () => {
     fetchData();
   }, []);
 
-  const listItems = data.map((item) => (
-    <div key={item.id}>
-      <ul>
-        <li>{item.orderDate.toDate().toLocaleTimeString()}</li>
-        <li>{item.tableNumber}</li>
-      </ul>
+  const ticketOrder = data.map((item) => (
+    <section key={item.id} className="ticket-card">
+      <div className="order-data">
+        <ul className="right-data">
+          <div className="table-number-order">{item.tableNumber.toUpperCase()}</div>
+          <div>{item.waiterName}</div>
+        </ul>
+        <div>{item.orderDate.toDate().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit', hour12: false})}hrs</div>
+      </div>
       {item.orderItems.map((order) => (
-        <ul key={order.id}>
-          <li>{order.name}</li>
-          <li>{order.qty}</li>
+        <ul key={order.id} className="items-list">
+          <li>{order.qty} x {order.name}</li>
         </ul>
       ))}
-    </div>
+      <button className="ticket-btn">START</button>
+    </section>
   )); 
   
   return (
     <Fragment>
       <div className="order-tickets-container">
-        {listItems}
+        {ticketOrder}
       </div>
     </Fragment>
   )
