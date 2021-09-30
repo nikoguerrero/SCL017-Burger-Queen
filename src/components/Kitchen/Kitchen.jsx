@@ -11,36 +11,52 @@ const Kitchen = (props) => {
   const [data, setData] = useState([]);
   const [status, setStatus] = useState('all orders');
 
-  const fetchData = async (x) => {
-    const orderStatus = x;
-    const orderData = await orderStatus.get();
+  // const fetchData = async (kitchenOrder) => {
+  //   const orderStatus = kitchenOrder;
+  //   const orderData = await orderStatus.get();
+  //   const array = [];
+  //   for (const doc of orderData.docs) {
+  //     // console.log(doc.id, '=>', doc.data());
+  //     const element = doc.data();
+  //     const id = doc.id;
+  //     array.push({...element, id});
+  //   }
+  //   setData(array);
+
+  const fetchData = (kitchenOrder) => {
+    const orderStatus = kitchenOrder;
     const array = [];
-    for (const doc of orderData.docs) {
-      // console.log(doc.id, '=>', doc.data());
-      const element = doc.data();
-      const id = doc.id;
-      array.push({...element, id});
-    }
-    setData(array);
+    orderStatus.onSnapshot(snapshot => {
+      let changes = snapshot.docChanges();
+      console.log(snapshot);
+      snapshot.forEach(doc => {
+        console.log(doc.id);
+        const element = doc.data();
+        const id = doc.id;
+        array.push({...element, id});
+      });
+      setData(array);
+    });
   };
 
   useEffect(() => {
-    console.log(status)
+    console.log(status);
+    const orderCollection = db.collection('orders');
     switch (status) {
       case 'all orders':
-        fetchData(db.collection('orders'));
+        fetchData(orderCollection);
       break;
       case 'new':
-        fetchData(db.collection('orders').where('status', '==', 'waiting'));
+        fetchData(orderCollection.where('status', '==', 'waiting'));
       break;
       case 'active':
-        fetchData(db.collection('orders').where('status', '==', 'in progress'));
+        fetchData(orderCollection.where('status', '==', 'in progress'));
       break;
       case 'done':
-        fetchData(db.collection('orders').where('status', '==', 'ready'));
+        fetchData(orderCollection.where('status', '==', 'ready'));
       break;
       default:
-        fetchData(db.collection('orders'));
+        fetchData(orderCollection);
       break;
     }
   }, [status]);
