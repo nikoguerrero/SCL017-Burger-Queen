@@ -7,7 +7,7 @@ import KitchenBar from '../KitchenBar/KitchenBar';
 import Tickets from '../Tickets/Tickets';
 import { db } from '../../firebase';
 
-const Kitchen = (props) => {
+const Kitchen = () => {
   const [data, setData] = useState([]);
   const [status, setStatus] = useState('all orders');
 
@@ -28,32 +28,37 @@ const Kitchen = (props) => {
     const array = [];
     orderStatus.onSnapshot(snapshot => {
       let changes = snapshot.docChanges();
-      console.log(snapshot);
-      snapshot.forEach(doc => {
-        console.log(doc.id);
-        const element = doc.data();
-        const id = doc.id;
-        array.push({...element, id});
+      // console.log(changes);
+      changes.forEach(change => {
+        console.log(change.type);
+        if (change.type === 'added') {
+          const element = change.doc.data();
+          const id = change.doc.id;
+          array.push({...element, id});
+        // } else if(change.type === 'modified') {
+          
+        }
+        // console.log(array);
       });
       setData(array);
     });
   };
 
   useEffect(() => {
-    console.log(status);
-    const orderCollection = db.collection('orders');
+    // console.log(status);
+    const orderCollection = db.collection('orders').orderBy('orderDate', 'desc');
     switch (status) {
       case 'all orders':
         fetchData(orderCollection);
       break;
       case 'new':
-        fetchData(orderCollection.where('status', '==', 'waiting'));
+        fetchData(orderCollection.where('status', '==', 1));
       break;
       case 'active':
-        fetchData(orderCollection.where('status', '==', 'in progress'));
+        fetchData(orderCollection.where('status', '==', 2));
       break;
       case 'done':
-        fetchData(orderCollection.where('status', '==', 'ready'));
+        fetchData(orderCollection.where('status', '==', 3));
       break;
       default:
         fetchData(orderCollection);

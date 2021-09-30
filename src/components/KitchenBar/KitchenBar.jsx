@@ -16,23 +16,23 @@ const KitchenBar = (props) => {
     /* eslint-disable jsx-a11y/anchor-is-valid */
     <div className="nav">
       <ul className="nav__list">
-        <li className="nav__item nav__item-active"> 
-          <a onClick={() => setStatus('all orders')}>
+        <li className="nav__item nav__item-active" onClick={() => setStatus('all orders')}> 
+          <a>
             <p>All ORDERS</p>
           </a>
         </li>
-        <li className="nav__item">
-          <a onClick={() => setStatus('new')}>
+        <li className="nav__item" onClick={() => setStatus('new')}>
+          <a>
             <p>NEW</p>
           </a>
         </li>
-        <li className="nav__item">
-          <a onClick={() => setStatus('active')}>
+        <li className="nav__item" onClick={() => setStatus('active')}>
+          <a >
             <p>ACTIVE</p>
           </a>
         </li>
-        <li className="nav__item">
-          <a onClick={() => setStatus('done')}>
+        <li className="nav__item" onClick={() => setStatus('done')}>
+          <a>
             <p>DONE</p>
           </a>
         </li>

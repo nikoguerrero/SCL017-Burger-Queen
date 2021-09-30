@@ -14,19 +14,19 @@ const Tickets = (props) => {
   const changeStatus = async (e, column) => {
     const orderDoc = db.collection('orders').doc(e.target.id);
     const dataOrder = (await orderDoc.get()).data();
-    if (dataOrder.status === 'waiting') {
+    if (dataOrder.status === 1) {
       orderDoc.update({
-        status: 'in progress'
+        status: 2
       });
       // setButtonText('READY!')
       if (e.target.id === column.id) {
         setButtonText('READY!');
       }
-    } else if (dataOrder.status === 'in progress') {
+    } else if (dataOrder.status === 2) {
       orderDoc.update({
-        status: 'ready'
+        status: 3
       });
-    } else if (dataOrder.status === 'ready') {
+    } else if (dataOrder.status === 3) {
       setSelected(column.id);
     }
   }
