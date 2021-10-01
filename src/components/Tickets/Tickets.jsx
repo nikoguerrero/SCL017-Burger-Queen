@@ -30,7 +30,7 @@ const Tickets = (props) => {
       setSelected(column.id);
     }
   }
-
+  console.log(data);
   const ticketOrder = data.map((item) => (
     <section key={item.id} id={item.id} className="ticket-card">
       <div className="order-data">

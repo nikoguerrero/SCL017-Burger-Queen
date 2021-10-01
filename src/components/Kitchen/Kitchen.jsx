@@ -8,6 +8,7 @@ import Tickets from '../Tickets/Tickets';
 import { db } from '../../firebase';
 
 const Kitchen = () => {
+
   const [data, setData] = useState([]);
   const [status, setStatus] = useState('all orders');
 
@@ -25,27 +26,27 @@ const Kitchen = () => {
 
   const fetchData = (kitchenOrder) => {
     const orderStatus = kitchenOrder;
-    const array = [];
     orderStatus.onSnapshot(snapshot => {
+      const array = [];
       let changes = snapshot.docChanges();
-      // console.log(changes);
+    // console.log(changes);
       changes.forEach(change => {
-        console.log(change.type);
+        //console.log(change.type);
         if (change.type === 'added') {
           const element = change.doc.data();
           const id = change.doc.id;
           array.push({...element, id});
-        // } else if(change.type === 'modified') {
-          
+        } else if (change.type === 'removed') {
+          // array.push({});
         }
-        // console.log(array);
       });
       setData(array);
     });
   };
+  // fetchData();
+  
 
   useEffect(() => {
-    // console.log(status);
     const orderCollection = db.collection('orders').orderBy('orderDate', 'desc');
     switch (status) {
       case 'all orders':
@@ -61,7 +62,7 @@ const Kitchen = () => {
         fetchData(orderCollection.where('status', '==', 3));
       break;
       default:
-        fetchData(orderCollection);
+        // fetchData(orderCollection);
       break;
     }
   }, [status]);
@@ -74,7 +75,7 @@ const Kitchen = () => {
       <Logout />
       <Tickets
       data={data}
-      status={status}
+      // status={status}  
       />
       <KitchenBar 
       setStatus={setStatus}
