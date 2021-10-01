@@ -5,8 +5,7 @@ import Tickets from '../Tickets/Tickets';
 import { db } from '../../../firebase';
 
 const Kitchen = (props) => {
-  const { data, fetchData } = props;
-  const [status, setStatus] = useState('all orders');
+  const { data, fetchData, status, setStatus } = props;
 
   // const fetchData = async (kitchenOrder) => {
   //   const orderStatus = kitchenOrder;

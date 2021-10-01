@@ -1,14 +1,16 @@
 import React, { Fragment } from 'react';
+import KitchenBar from '../Cook/KitchenBar/KitchenBar';
+// import '../Cook/Tickets/Tickets.css';
 
 const Serve = (props) => {
-  const { data } = props;
+  const { data, setStatus } = props;
   
   const ticketOrder = data.map((item) => (
     <section key={item.id} id={item.id} className="ticket-card">
       <div className="order-data">
         <ul className="right-data">
           <div className="table-number-order">{item.tableNumber.toUpperCase()}</div>
-          <div>{item.waiterName}</div>
+          <div>{item.waiterName}</div>s
         </ul>
         <div>{item.orderDate.toDate().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit', hour12: false})}hrs</div>
       </div>
@@ -32,6 +34,9 @@ const Serve = (props) => {
           {ticketOrder}
         </div>
       </div>
+      <KitchenBar
+        setStatus={setStatus}
+      />
     </Fragment>
   );
 };
