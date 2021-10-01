@@ -1,6 +1,6 @@
 import React, { Fragment, useState } from 'react';
 import './Ticket.css';
-import { db } from '../../firebase';
+import { db } from '../../../firebase';
 
 const Tickets = (props) => {
   const { data } = props;

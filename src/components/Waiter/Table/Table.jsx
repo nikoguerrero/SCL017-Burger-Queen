@@ -1,7 +1,7 @@
 import React, { Fragment, useState, useEffect } from 'react';
 import './Table.css';
-import { auth } from '../../firebase';
-import { db } from '../../firebase';
+import { auth } from '../../../firebase';
+import { db } from '../../../firebase';
 import Select from 'react-select';
 
 export default function Table(props) {

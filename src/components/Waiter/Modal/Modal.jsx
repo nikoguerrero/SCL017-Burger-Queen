@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './Modal.css';
-import { db, auth, firebase } from '../../firebase';
+import { db, auth, firebase } from '../../../firebase';
 import checkicon from './images/checkicon.png';  
 
 const Modal = (props) => {

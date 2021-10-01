@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './Kitchen.css';
 import KitchenBar from '../KitchenBar/KitchenBar';
-import Tickets from '../../Tickets/Tickets';
+import Tickets from '../Tickets/Tickets';
 import { db } from '../../../firebase';
 
 const Kitchen = () => {

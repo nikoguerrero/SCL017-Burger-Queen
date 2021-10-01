@@ -1,4 +1,4 @@
-import React, { useState, useEffect, Fragment } from 'react';
+import React, { useState, useEffect } from 'react';
 import { auth } from './firebase';
 import Login from './components/Login/Login';
 import MainContent from './components/MainContent/MainContent';

@@ -4,7 +4,7 @@ import Order from '../Order/Order';
 import Table from '../Table/Table';
 import Menu from '../Menu/Menu';
 import Navbar from '../Navbar/Navbar';
-import foodItems from '../../menu.json';
+import foodItems from '../../../menu.json';
 
 const WaiterScreen = () => {
   const recommendations = [];

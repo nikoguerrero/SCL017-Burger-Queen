@@ -1,6 +1,6 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
-import WaiterScreen from './components/WaiterScreen/WaiterScreen';
+import WaiterScreen from './components/Waiter/WaiterScreen/WaiterScreen';
 import Kitchen from './components/Cook/Kitchen/Kitchen';
 import Serve from './components/Serve/Serve';
 
