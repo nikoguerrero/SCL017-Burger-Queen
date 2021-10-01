@@ -4,14 +4,15 @@
   grid-row: 1;
   flex-direction: row;
   justify-content: flex-end;
+  margin-left: 50%;
 }
 
 .logout-btn {
   height: 40%;
-  margin-top: 10%;
+  margin-top: 20%;
   margin-bottom: -10%;
-  margin-right: 10%;
-  margin-left: -10%;
+  margin-right: 20%;
+  /* margin-left: -10%; */
   
 }
 

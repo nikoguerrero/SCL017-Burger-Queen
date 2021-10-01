@@ -1,12 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import './WaiterScreen.css'
-import title from './images/apptitle.png'; 
 import Order from '../Order/Order';
 import Table from '../Table/Table';
 import Menu from '../Menu/Menu';
 import Navbar from '../Navbar/Navbar';
 import foodItems from '../../menu.json';
-import Logout from '../Logout/Logout';
 
 const WaiterScreen = () => {
   const recommendations = [];
@@ -64,13 +62,8 @@ const WaiterScreen = () => {
     setItems(getMenuItems(category));
   }, [category]);
 
-
   return (
     <div className="waiter-grid">
-      <div className="image-container">
-        <img src= { title } alt="app name" className="img-title"></img>
-      </div>
-      <Logout />
       <Menu
         addToOrder={addToOrder}
         items={items}
