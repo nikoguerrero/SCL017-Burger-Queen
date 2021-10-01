@@ -4,9 +4,8 @@ import KitchenBar from '../KitchenBar/KitchenBar';
 import Tickets from '../Tickets/Tickets';
 import { db } from '../../../firebase';
 
-const Kitchen = () => {
-
-  const [data, setData] = useState([]);
+const Kitchen = (props) => {
+  const { data, fetchData } = props;
   const [status, setStatus] = useState('all orders');
 
   // const fetchData = async (kitchenOrder) => {
@@ -21,27 +20,25 @@ const Kitchen = () => {
   //   }
   //   setData(array);
 
-  const fetchData = (kitchenOrder) => {
-    const orderStatus = kitchenOrder;
-    orderStatus.onSnapshot(snapshot => {
-      const array = [];
-      let changes = snapshot.docChanges();
-    // console.log(changes);
-      changes.forEach(change => {
-        //console.log(change.type);
-        if (change.type === 'added') {
-          const element = change.doc.data();
-          const id = change.doc.id;
-          array.push({...element, id});
-        } else if (change.type === 'removed') {
-          // array.push({});
-        }
-      });
-      setData(array);
-    });
-  };
-  // fetchData();
-  
+  // const fetchData = (kitchenOrder) => {
+  //   const orderStatus = kitchenOrder;
+  //   orderStatus.onSnapshot(snapshot => {
+  //     const array = [];
+  //     let changes = snapshot.docChanges();
+  //   // console.log(changes);
+  //     changes.forEach(change => {
+  //       //console.log(change.type);
+  //       if (change.type === 'added') {
+  //         const element = change.doc.data();
+  //         const id = change.doc.id;
+  //         array.push({...element, id});
+  //       } else if (change.type === 'removed') {
+  //         // array.push({});
+  //       }
+  //     });
+  //     setData(array);
+  //   });
+  // };
 
   useEffect(() => {
     const orderCollection = db.collection('orders').orderBy('orderDate', 'desc');
@@ -68,7 +65,6 @@ const Kitchen = () => {
     <div className="kitchen-grid">
       <Tickets
       data={data}
-      // status={status}  
       />
       <KitchenBar 
       setStatus={setStatus}
