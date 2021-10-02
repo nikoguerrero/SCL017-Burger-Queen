@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useReducer } from 'react';
 import './WaiterScreen.css'
 import Order from '../Order/Order';
 import Table from '../Table/Table';
@@ -12,19 +12,22 @@ const WaiterScreen = () => {
     recommendations.push(foodItems[recommendation.menuName][recommendation.index]);
   }
 
-  const getMenuItems = (category) => {
+  const setMenuItems = (oldCategory, category) => {
     switch (category) {
       case 'recommendations': {
-        return recommendations;
+        items = recommendations;
+      break;
       }
       default:
-        return foodItems[category];
+        items = foodItems[category];
+      break;
     }
-  }
+    return category;
+  };
 
+  let items = [];
   const [order, setOrder] = useState([]);
-  const [category, setCategory] = useState('recommendations');
-  const [items, setItems] = useState(getMenuItems(category));
+  const [category, setCategory] = useReducer(setMenuItems, 'recommendations');
   const [table, setTable] = useState(null);
 
   const cleanOrder = () => {
@@ -57,10 +60,6 @@ const WaiterScreen = () => {
       )
     }
   };
-
-  useEffect(() => {
-    setItems(getMenuItems(category));
-  }, [category]);
 
   return (
     <div className="waiter-grid">
