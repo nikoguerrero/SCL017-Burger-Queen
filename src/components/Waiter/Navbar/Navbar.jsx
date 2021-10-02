@@ -26,9 +26,9 @@ const Navbar = (props) => {
             <p>BREAKFAST</p>
           </a>
         </li>
-        <li className="nav__item" onClick={() => setCategory('sandwiches')}>
+        <li className="nav__item" onClick={() => setCategory('lunch')}>
           <a>
-            <p>SANDWICHES</p>
+            <p>LUNCH</p>
           </a>
         </li>
         <li className="nav__item" onClick={() => setCategory('drinks')}>

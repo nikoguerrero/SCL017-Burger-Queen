@@ -11,20 +11,29 @@ const MainContent = () => {
   const [data, setData] = useState([]);
   const [status, setStatus] = useState('all orders');
 
+  var unsubscribe;
+
   const fetchData = (kitchenOrder) => {
     const orderStatus = kitchenOrder;
-    orderStatus.onSnapshot(snapshot => {
+    unsubscribe = orderStatus.onSnapshot(snapshot => {
       const array = [];
-      let changes = snapshot.docChanges();
-      changes.forEach(change => {
-        //console.log(change.type);
-        if (change.type === 'added') {
-          const element = change.doc.data();
-          const id = change.doc.id;
-          array.push({...element, id});
-        }
-      });
+      // let changes = snapshot.docChanges();
+      // changes.forEach(change => {
+      //   //console.log(change.type);
+      //   if (change.type === 'added') {
+      //     const element = change.doc.data();
+      //     const id = change.doc.id;
+      //     array.push({...element, id});
+      //   }
+      // });
+      snapshot.forEach(doc => {
+        const element = doc.data();
+        const id = doc.id;
+        array.push({...element, id});
+      })
       setData(array);
+      // unsubscribe();
+      // console.log(unsubscribe())
     });
   };
 
@@ -42,7 +51,7 @@ const MainContent = () => {
 
   return (
     <div className="general-grid">
-      <div className="header">
+      <div className="header-main">
         <div className="image-container">
           <img src= { title } alt="app name" className="img-title"></img>
         </div>
@@ -60,6 +69,7 @@ const MainContent = () => {
       setData={setData}
       status={status}
       setStatus={setStatus}
+      unsubscribe={unsubscribe}
       />
     </div>
   )

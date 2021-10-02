@@ -39,7 +39,7 @@
 
     }
   ],
-  "sandwiches": [
+  "lunch": [
     {
       "id": 7,
       "name": "Soy Burger",
@@ -161,7 +161,7 @@
       "index": 5
     },
     {
-      "menuName": "sandwiches",
+      "menuName": "lunch",
       "index": 0
     },
     {
@@ -169,11 +169,11 @@
       "index": 4
     },
     {
-      "menuName": "sandwiches",
+      "menuName": "lunch",
       "index": 4
     },
     {
-      "menuName": "sandwiches",
+      "menuName": "lunch",
       "index": 3
     }
   ]

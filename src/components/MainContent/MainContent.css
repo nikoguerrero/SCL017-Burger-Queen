@@ -5,8 +5,11 @@
   height: 100vh;
 }
 
-.header {
-  grid-row: 1;
+.header-main {
+  display: flex;
+  align-items: center;
+  /* padding: 0% 15%; */
+  justify-content:flex-end;
 }
 
 .image-container {
