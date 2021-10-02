@@ -3,15 +3,15 @@ import './Order.css';
 import Modal from '../Modal/Modal';
 
 export default function Order(props) {
-  const { order, removeFromOrder, table, cleanOrder } = props;
+  const { order, removeFromOrder, table, cleanOrder, name } = props;
   const [show, setShow] = useState(false);
   const [alert, setAlert] = useState(false);
   const [tableAlert, setTableAlert] = useState(null);
 
   const handleClose = () => {
     setShow(false);
-    cleanOrder();
-  }
+  };
+
   const handleShow = () => {
     if (table !== null && order.length > 0) {
       setShow(true);
@@ -59,8 +59,6 @@ export default function Order(props) {
     </div>
   );
 
-  
-
   return (
     <div className="order-container">
       <div className="order">
@@ -78,10 +76,10 @@ export default function Order(props) {
         </div>
         <button className="send-btn" onClick={handleShow}>SEND TO KITCHEN</button>
         {show ? 
-        <Modal onHide={handleClose} order={order} totalOrder={totalOrder} table={table}>
+        <Modal onHide={handleClose} order={order} totalOrder={totalOrder} table={table} name={name} cleanOrder={cleanOrder}>
         </Modal>
         : null}
         {alert ? <AlertMessage /> : null}
     </div>
-  )
+  );
 };

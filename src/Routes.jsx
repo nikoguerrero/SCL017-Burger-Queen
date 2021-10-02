@@ -6,7 +6,7 @@ import Serve from './components/Serve/Serve';
 
 
 const Routes = (props) => {
-  const { data, fetchData, setData, status, setStatus, unsubscribe } = props;
+  const { data, setData, status, setStatus, unsubscribe } = props;
   return (
   <Switch>
     <Route path="/menu">
@@ -15,13 +15,13 @@ const Routes = (props) => {
     <Route path="/serve">
       <Serve 
       data={data}
+      status={status}
       setStatus={setStatus}
       />
     </Route>
     <Route path="/kitchen">
       <Kitchen 
       data={data}
-      fetchData={fetchData}
       setData={setData}
       status={status}
       setStatus={setStatus}

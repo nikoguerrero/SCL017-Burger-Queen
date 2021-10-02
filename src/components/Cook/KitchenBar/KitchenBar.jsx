@@ -1,7 +1,9 @@
 import React from 'react';
+import { useLocation } from 'react-router-dom';
 
 const KitchenBar = (props) => {
   const { setStatus } = props;
+
   let navItem = document.querySelectorAll(".nav__item");
 
   navItem.forEach((link) => link.addEventListener("click", listActive));
@@ -10,6 +12,15 @@ const KitchenBar = (props) => {
     navItem.forEach((link) => link.classList.remove("nav__item-active"));
     this.classList.add("nav__item-active");
   }
+
+  const NavLink = () =>
+  /* eslint-disable jsx-a11y/anchor-is-valid */
+    <li className="nav__item" onClick={() => setStatus('active')}>
+      <a>
+        <p>ACTIVE</p>
+      </a>
+    </li>
+  ;
 
 
   return (
@@ -26,11 +37,7 @@ const KitchenBar = (props) => {
             <p>NEW</p>
           </a>
         </li>
-        <li className="nav__item" onClick={() => setStatus('active')}>
-          <a >
-            <p>ACTIVE</p>
-          </a>
-        </li>
+        {useLocation().pathname === '/kitchen' ? <NavLink /> : null }
         <li className="nav__item" onClick={() => setStatus('done')}>
           <a>
             <p>DONE</p>

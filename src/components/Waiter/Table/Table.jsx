@@ -1,22 +1,9 @@
-import React, { Fragment, useState, useEffect } from 'react';
+import React, { Fragment } from 'react';
 import './Table.css';
-import { auth } from '../../../firebase';
-import { db } from '../../../firebase';
 import Select from 'react-select';
 
 export default function Table(props) {
-  const [name, setName] = useState([]);
-  const { setTable } = props;
-
-  useEffect(() => {
-    const getData = async () => {
-      const currentUser = auth.currentUser;
-      const waitersData = await db.collection('users').doc(currentUser.uid).get();
-      const waiterName = waitersData.data();
-      setName(waiterName);
-    }
-    getData();
-  }, []);
+  const { setTable, name } = props;
 
   const options = [
     { value: 'table-1', label: '1' },

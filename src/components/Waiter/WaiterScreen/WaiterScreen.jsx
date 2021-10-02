@@ -1,10 +1,11 @@
-import React, { useState, useReducer } from 'react';
+import React, { useState, useReducer, useEffect } from 'react';
 import './WaiterScreen.css'
 import Order from '../Order/Order';
 import Table from '../Table/Table';
 import Menu from '../Menu/Menu';
 import Navbar from '../Navbar/Navbar';
 import foodItems from '../../../menu.json';
+import { db, auth } from '../../../firebase';
 
 const WaiterScreen = () => {
   const recommendations = [];
@@ -24,14 +25,10 @@ const WaiterScreen = () => {
     }
     return category;
   };
+
   const initItems = (category) => {
     return setMenuItems('', category);
   };
-
-  let items = recommendations;
-  const [order, setOrder] = useState([]);
-  const [category, setCategory] = useReducer(setMenuItems, 'recommendations', initItems);
-  const [table, setTable] = useState(null);
 
   const cleanOrder = () => {
     setOrder([]);
@@ -64,6 +61,23 @@ const WaiterScreen = () => {
     }
   };
 
+  useEffect(() => {
+    const getData = async () => {
+      const currentUser = auth.currentUser;
+      const waitersData = await db.collection('users').doc(currentUser.uid).get();
+      const waiterName = waitersData.data();
+      setName(waiterName);
+    }
+    getData();
+  }, []);
+
+  let items = recommendations;
+  const [order, setOrder] = useState([]);
+  const [category, setCategory] = useReducer(setMenuItems, 'recommendations', initItems);
+  const [table, setTable] = useState(null);
+  const [name, setName] = useState([]);
+
+
   return (
     <div className="waiter-grid">
       <Menu
@@ -74,6 +88,7 @@ const WaiterScreen = () => {
       <Table
         setTable={setTable}
         cleanOrder={cleanOrder}
+        name={name}
       ></Table>
       <Order
         order={order}
@@ -81,6 +96,7 @@ const WaiterScreen = () => {
         removeFromOrder={removeFromOrder}
         table={table}
         cleanOrder={cleanOrder}
+        name={name}
       ></Order>
       <Navbar
         setCategory={setCategory}

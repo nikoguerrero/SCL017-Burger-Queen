@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import './Modal.css';
 import { db, auth, firebase } from '../../../firebase';
-import checkicon from './images/checkicon.png';  
+import checkicon from './images/checkicon.png';
+import './Modal.css';
 
 const Modal = (props) => {
-  const { onHide, order, totalOrder, table } = props;
+  const { onHide, order, totalOrder, table, name, cleanOrder } = props;
   const [showOrder, setShowOrder] = useState(true);
   const [showSent, setShowSent] = useState(false);
 
@@ -15,7 +15,7 @@ const Modal = (props) => {
         return { id, name, qty };
       });
       const waiterId = auth.currentUser.uid;
-      const waiterName = 'Niko';
+      const waiterName = name.name;
       const orderDate = firebase.firestore.FieldValue.serverTimestamp();
       await db.collection('orders').add({
         waiterId,
@@ -25,12 +25,13 @@ const Modal = (props) => {
         tableNumber: table.value,
         orderItems: orderSent,
         totalOrder: totalOrder,
-        status: 1
+        status: 0
       });
       setShowOrder(false);
       setShowSent(true);
     } 
-  }
+    cleanOrder();
+  };
 
   const OrderSent = () => 
     <div className="confirmed-wrapper">
@@ -43,7 +44,8 @@ const Modal = (props) => {
       <button className="close-modal-btn" onClick={onHide}>
         CLOSE
       </button>
-    </div>;
+    </div>
+  ;
 
   const OrderConfirmation = () => 
     <div className="modal-wrapper">
@@ -83,7 +85,7 @@ const Modal = (props) => {
       {showSent ? <OrderSent/>: null}
       </div>
     </div>
-  )
-}
+  );
+};
 
 export default Modal;

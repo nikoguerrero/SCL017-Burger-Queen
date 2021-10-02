@@ -1,53 +1,51 @@
 import React, { Fragment } from 'react';
 import KitchenBar from '../Cook/KitchenBar/KitchenBar';
+// import TicketItem from '../Cook/Tickets/TicketItem';
+import ServeItem from '../Serve/ServeItem';
 import { db } from '../../firebase';
 
 const Serve = (props) => {
-  const { data, setStatus } = props;
+  const { data, status, setStatus } = props;
+  let filteredData = data;
 
   const changeStatus = async (e) => {
     const orderDoc = db.collection('orders').doc(e.target.id);
     const dataOrder = (await orderDoc.get()).data();
-    if (dataOrder.status === 3) {
-      orderDoc.update({
-        status: 4
-      });
-    } else if (dataOrder.status === 2) {
+    if (dataOrder.status === 2) {
       orderDoc.update({
         status: 3
       });
+    } else if (dataOrder.status === 3) {
+      orderDoc.update({
+        status: 4
+      });
     }
-  }
+  };
 
-  const ticketOrder = data.map((item) => (
-    <section key={item.id} id={item.id} className="ticket-card">
-      <div className="order-data">
-        <ul className="right-data">
-          <div className="table-number-order">{item.tableNumber.toUpperCase()}</div>
-          <div>{item.waiterName}</div>
-        </ul>
-        <div>{item.orderDate.toDate().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit', hour12: false})}hrs</div>
-      </div>
-      {item.orderItems.map((order) => (
-        <ul key={order.id} className="items-list">
-          <li>{order.qty} x {order.name}</li>
-        </ul>
-      ))}
-      <button 
-        className="ticket-btn" 
-        id={item.id}
-        onClick={(e) => changeStatus(e)}
-        >
-        DELIVER
-      </button>
-    </section>
-  )); 
+  console.log(status)
+
+  switch (status) {
+    case 'new':
+      filteredData = data.filter((item) => item.status === 3);
+      break;
+    case 'done':
+      filteredData = data.filter((item) => item.status === 4);
+      break;
+    default:
+      filteredData = data.filter((item) => item.status > 2);
+      break;
+  }
   
   return (
     <Fragment>
       <div className="order-tickets-container">
         <div className="tickets-wrapper">
-          {ticketOrder}
+          {filteredData.map((item) => 
+          <ServeItem
+          item={item}
+          changeStatus={changeStatus}
+          key={item.id}
+          />)}
         </div>
       </div>
       <KitchenBar

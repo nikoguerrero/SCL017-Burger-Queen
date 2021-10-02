@@ -6,18 +6,20 @@ import Tickets from '../Tickets/Tickets';
 const Kitchen = (props) => {
   const { data, status, setStatus } = props;
   let filteredData = data;
+  console.log(status);
 
   switch (status) {
     case 'new':
-      filteredData = data.filter((item) => item.status === 1);
+      filteredData = data.filter((item) => item.status === 0);
       break;
     case 'active':
-      filteredData = data.filter((item) => item.status === 2);
+      filteredData = data.filter((item) => item.status === 1);
       break;
     case 'done':
-      filteredData = data.filter((item) => item.status === 3);
+      filteredData = data.filter((item) => item.status === 2);
       break;
     default:
+      filteredData = data.filter((item) => item.status < 3);
       break;
   }
   
