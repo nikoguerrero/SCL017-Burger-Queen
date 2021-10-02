@@ -16,18 +16,21 @@ const WaiterScreen = () => {
     switch (category) {
       case 'recommendations': {
         items = recommendations;
-      break;
+        break;
       }
       default:
         items = foodItems[category];
-      break;
+        break;
     }
     return category;
   };
+  const initItems = (category) => {
+    return setMenuItems('', category);
+  };
 
-  let items = [];
+  let items = recommendations;
   const [order, setOrder] = useState([]);
-  const [category, setCategory] = useReducer(setMenuItems, 'recommendations');
+  const [category, setCategory] = useReducer(setMenuItems, 'recommendations', initItems);
   const [table, setTable] = useState(null);
 
   const cleanOrder = () => {

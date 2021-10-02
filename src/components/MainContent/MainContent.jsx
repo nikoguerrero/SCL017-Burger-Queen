@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import title from './images/apptitle.png';
 import Logout from '../Logout/Logout';
 import '../Logout/Logout.css';
@@ -11,11 +11,11 @@ const MainContent = () => {
   const [data, setData] = useState([]);
   const [status, setStatus] = useState('all orders');
 
-  var unsubscribe;
+  // var unsubscribe;
 
-  const fetchData = (kitchenOrder) => {
-    const orderStatus = kitchenOrder;
-    unsubscribe = orderStatus.onSnapshot(snapshot => {
+  useEffect(() => {
+    const orderCollection = db.collection('orders').orderBy('orderDate', 'desc');
+    const unsuscribe = orderCollection.onSnapshot(snapshot => {
       const array = [];
       // let changes = snapshot.docChanges();
       // changes.forEach(change => {
@@ -32,10 +32,36 @@ const MainContent = () => {
         array.push({...element, id});
       })
       setData(array);
-      // unsubscribe();
-      // console.log(unsubscribe())
     });
+    return () => unsuscribe;
+  }, []);
+  
+
+  const fetchData = (kitchenOrder) => {
+    const orderStatus = kitchenOrder;
+    
   };
+
+  // useEffect(() => {
+  //   const orderCollection = db.collection('orders').orderBy('orderDate', 'desc');
+  //   switch (status) {
+  //     case 'all orders':
+  //       fetchData(orderCollection);
+  //     break;
+  //     case 'new':
+  //       fetchData(orderCollection.where('status', '==', 1));
+  //     break;
+  //     case 'active':
+  //       fetchData(orderCollection.where('status', '==', 2));
+  //     break;
+  //     case 'done':
+  //       fetchData(orderCollection.where('status', '==', 3));
+  //     break;
+  //     default:
+  //       // fetchData(orderCollection);
+  //     break;
+  //   }
+  // }, [status]);
 
   const getData = async () => {
     const orderStatus = db.collection('orders').where('status', '==', 3);
@@ -69,7 +95,6 @@ const MainContent = () => {
       setData={setData}
       status={status}
       setStatus={setStatus}
-      unsubscribe={unsubscribe}
       />
     </div>
   )

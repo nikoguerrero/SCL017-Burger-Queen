@@ -40,27 +40,6 @@ const Kitchen = (props) => {
   // };
 
   console.log(data);
-
-  // useEffect(() => {
-  //   const orderCollection = db.collection('orders').orderBy('orderDate', 'desc');
-  //   switch (status) {
-  //     case 'all orders':
-  //       fetchData(orderCollection);
-  //     break;
-  //     case 'new':
-  //       fetchData(orderCollection.where('status', '==', 1));
-  //     break;
-  //     case 'active':
-  //       fetchData(orderCollection.where('status', '==', 2));
-  //     break;
-  //     case 'done':
-  //       fetchData(orderCollection.where('status', '==', 3));
-  //     break;
-  //     default:
-  //       // fetchData(orderCollection);
-  //     break;
-  //   }
-  // }, [status]);
   
   return (
     <div className="kitchen-grid">
