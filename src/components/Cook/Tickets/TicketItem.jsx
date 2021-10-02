@@ -2,9 +2,17 @@ import React from 'react';
 
 const TicketItem = (props) => {
   const { item, changeStatus } = props;
+  const statusNames = [
+    { name: 'START', btnClass: '', orderClass: ''} ,
+    { name: 'READY!', btnClass: '', orderClass: 'order-data-active' },
+    { name: 'READY!', btnClass: 'ticket-btn-deactivated', orderClass: 'order-data-ready'}
+  ];
+  const currentStatus = statusNames[item.status -1];
+  const orderClassName = `order-data ${currentStatus.orderClass}`;
+  const buttonClassName = `ticket-btn ${currentStatus.btnClass}`;
   return (
     <section id={item.id} className="ticket-card">
-      <div className="order-data">
+      <div className={orderClassName}>
         <ul className="right-data">
           <div className="table-number-order">{item.tableNumber.toUpperCase()}</div>
           <div>{item.waiterName}</div>
@@ -17,11 +25,11 @@ const TicketItem = (props) => {
         </ul>
       ))}
       <button 
-        className="ticket-btn" 
+        className={buttonClassName}
         id={item.id} 
         onClick={(e) => changeStatus(e, item)}
       >
-        START
+        {currentStatus.name}
       </button>
     </section>
   )

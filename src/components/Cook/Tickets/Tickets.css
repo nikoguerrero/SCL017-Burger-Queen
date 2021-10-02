@@ -20,10 +20,8 @@
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  /* justify-content: center; */
   margin-top: 5%;
   gap: 5%;
-  align-items: center;
   width: 100%;
 }
 
@@ -38,13 +36,21 @@
 
 .order-data {
   display: flex;
-  background: grey;
+  background: #CDCDCD;
   border-radius: 15px 15px 0 0;
   flex-direction: row;
   justify-content: space-between;
   color: white;
   padding: 5%;
   grid-row: 1;
+}
+
+.order-data-active {
+  background: #1AD2D2;
+}
+
+.order-data-ready {
+  background: #1AD264;
 }
 
 .right-data {
@@ -75,6 +81,11 @@
   color: white;
 }
 
+.ticket-btn-deactivated {
+  background: #CDCDCD;
+}
+
+
 @media (min-device-width: 1024px) and (max-device-width: 1366px) and (orientation:landscape)  {
   .order-tickets-container {
     grid-template-columns: 2% 5fr 2%;
@@ -89,6 +100,7 @@
     flex-wrap: wrap;
     overflow-x: scroll;
     scrollbar-width: none;
+    align-content: flex-start;
   }
 
   .tickets-wrapper::-webkit-scrollbar {

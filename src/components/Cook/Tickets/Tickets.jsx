@@ -13,11 +13,6 @@ const Tickets = (props) => {
       orderDoc.update({
         status: 2
       });
-      if (e.target.id === column.id) {
-
-      }
-
-
     } else if (dataOrder.status === 2) {
       orderDoc.update({
         status: 3
