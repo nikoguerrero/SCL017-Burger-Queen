@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { auth } from './firebase';
 import Login from './components/Login/Login';
 import MainContent from './components/MainContent/MainContent';
-import Admin from './components/Admin/Admin';
 import {
   BrowserRouter as Router,
   Switch,
@@ -15,6 +14,7 @@ const App = () => {
   useEffect(() => {
     auth.onAuthStateChanged(user => {
       if (user) {
+        console.log(user);
         setUser(user);
       } else {
         setUser(null);
@@ -27,9 +27,6 @@ const App = () => {
         <Switch>
           <Route path="/" exact>
             <Login />
-          </Route>
-          <Route path="/admin">
-            <Admin />
           </Route>
             <MainContent />
           </Switch>

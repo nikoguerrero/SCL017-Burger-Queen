@@ -33,6 +33,8 @@ const Login = (props) => {
         props.history.push('/menu');
       } else if (data.role === 'cook') {
         props.history.push('/kitchen');
+      } else if (data.role === 'admmin') {
+        props.history.push('/admin');
       }
       console.log(data);
     } catch (error) {

@@ -64,9 +64,11 @@ const WaiterScreen = (props) => {
   useEffect(() => {
     const getData = async () => {
       const currentUser = auth.currentUser;
-      const waitersData = await db.collection('users').doc(currentUser.uid).get();
-      const waiterName = waitersData.data();
-      setName(waiterName);
+      if (currentUser !== null) {
+        const waitersData = await db.collection('users').doc(currentUser.uid).get();
+        const waiterName = waitersData.data();
+        setName(waiterName);
+      }
     }
     getData();
   }, []);
