@@ -22,8 +22,6 @@ const Serve = (props) => {
     }
   };
 
-  console.log(status)
-
   switch (status) {
     case 'new':
       filteredData = data.filter((item) => item.status === 2);

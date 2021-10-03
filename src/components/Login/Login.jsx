@@ -24,7 +24,6 @@ const Login = (props) => {
 
   const signIn = React.useCallback(async () => {
     try {
-      console.log(email, password);
       await auth.signInWithEmailAndPassword(email, password);
       const currentUser = auth.currentUser;
       const userData = await db.collection('users').doc(currentUser.uid).get();
@@ -33,12 +32,10 @@ const Login = (props) => {
         props.history.push('/menu');
       } else if (data.role === 'cook') {
         props.history.push('/kitchen');
-      } else if (data.role === 'admmin') {
+      } else if (data.role === 'admin') {
         props.history.push('/admin');
       }
-      console.log(data);
     } catch (error) {
-      console.log(error);
       switch (error.code) {
         case 'auth/user-not-found':
           setError('Invalid email');

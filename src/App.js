@@ -14,7 +14,6 @@ const App = () => {
   useEffect(() => {
     auth.onAuthStateChanged(user => {
       if (user) {
-        console.log(user);
         setUser(user);
       } else {
         setUser(null);
@@ -33,7 +32,7 @@ const App = () => {
       </Router>
   ) : (
     <p>Loading...</p>
-  )
-}
+  );
+};
 
 export default App;

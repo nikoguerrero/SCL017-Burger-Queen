@@ -34,6 +34,11 @@
  margin-top: 20%
 }
 
+.kitchen-icon {
+  width: 60%;
+  margin-top: 20%
+}
+
 @media (min-device-width: 1024px) and (max-device-width: 1366px) and (orientation:landscape)  {
   .img-title {
     width: 20%;

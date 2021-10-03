@@ -8,15 +8,12 @@ const Admin = () => {
   const [username, setUsername] = useState('');
   const [role, setRole] = useState('admin');
 
-  const [error, setError] = useState(null);
+  // const [error, setError] = useState(null);
 
   const Register = useCallback(async(e) => {
-    console.log(role);
     e.preventDefault();
     // try {
-        const res = await auth.createUserWithEmailAndPassword(email, pass)
-        console.log(res.user)
-        
+        const res = await auth.createUserWithEmailAndPassword(email, pass);
         await db.collection('users').doc(res.user.uid).set({
             name: username,
             role: role,

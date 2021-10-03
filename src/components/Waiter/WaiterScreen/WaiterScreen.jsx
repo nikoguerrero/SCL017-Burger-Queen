@@ -83,7 +83,6 @@ const WaiterScreen = (props) => {
     setCategory('recommendations');
   }, [menu]);
 
-
   return (
     <div className="waiter-grid">
       <Menu
