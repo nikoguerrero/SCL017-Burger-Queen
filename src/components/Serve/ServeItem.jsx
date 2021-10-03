@@ -6,13 +6,10 @@ const ServeItem = (props) => {
     { name: 'A', btnClass: '', orderClass: ''} ,
     { name: 'B!', btnClass: '', orderClass: 'order-data-active' },
     { name: 'DELIVER', btnClass: '', orderClass: ''},
-    { name: 'DELIVER', btnClass: '', orderClass: ''},
     { name: 'DELIVERED', btnClass: 'ticket-btn-deactivated', orderClass: 'order-data-ready'}
   ];
 
   const currentStatus = statusNames[item.status];
-  console.log(currentStatus);
-
   const orderClassName = `order-data ${currentStatus.orderClass}`;
   const buttonClassName = `ticket-btn ${currentStatus.btnClass}`;
   
@@ -38,8 +35,7 @@ const ServeItem = (props) => {
         {currentStatus.name}
       </button>
     </section>
-  )
-
+  );
 };
 
 export default ServeItem;

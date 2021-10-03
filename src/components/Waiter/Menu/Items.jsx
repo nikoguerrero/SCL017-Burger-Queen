@@ -1,7 +1,7 @@
 import React from 'react';
 import './Menu.css';
 
-export default function Main(props) {
+export default function Items(props) {
   const { items, addToOrder } = props;
   const menuItems = items.map((item) => (
     <button key={item.id} className="food-btn" onMouseUp={() => addToOrder(item) }>

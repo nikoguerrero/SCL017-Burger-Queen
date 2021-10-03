@@ -9,28 +9,29 @@
   display: flex;
   align-items: center;
   /* padding: 0% 15%; */
-  justify-content:flex-end;
+  /* justify-content:flex-end; */
 }
 
 .image-container {
   display: flex;
-  justify-content: center;
-  grid-column: 1/-1;
-  grid-row: 1;
+  /* justify-content: center; */
 }
 
 .img-title {
-  width: 30%;
+  width: 40%;
   margin: 2%;
 }
 
 .link-to-btn {
   grid-row: 1;
   grid-column: 2;
+  justify-content: flex-end;
+  margin-left: 30%;
 }
 
 .orders-ready {
- height: 100px;
+ width: 60%;
+ margin-top: 20%
 }
 
 @media (min-device-width: 1024px) and (max-device-width: 1366px) and (orientation:landscape)  {

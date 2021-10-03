@@ -26,13 +26,13 @@ const Serve = (props) => {
 
   switch (status) {
     case 'new':
-      filteredData = data.filter((item) => item.status === 3);
+      filteredData = data.filter((item) => item.status === 2);
       break;
     case 'done':
-      filteredData = data.filter((item) => item.status === 4);
+      filteredData = data.filter((item) => item.status === 3);
       break;
     default:
-      filteredData = data.filter((item) => item.status > 2);
+      filteredData = data.filter((item) => item.status > 1);
       break;
   }
   

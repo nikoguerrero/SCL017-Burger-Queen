@@ -6,11 +6,11 @@ export default function Table(props) {
   const { setTable, name } = props;
 
   const options = [
-    { value: 'table-1', label: '1' },
-    { value: 'table-2', label: '2' },
-    { value: 'table-3', label: '3' },
-    { value: 'table-4', label: '4' },
-    { value: 'table-5', label: '5' }
+    { value: 'table 1', label: '1' },
+    { value: 'table 2', label: '2' },
+    { value: 'table 3', label: '3' },
+    { value: 'table 4', label: '4' },
+    { value: 'table 5', label: '5' }
   ];
 
   const style = {
