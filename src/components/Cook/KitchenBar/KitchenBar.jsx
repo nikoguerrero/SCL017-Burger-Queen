@@ -22,7 +22,6 @@ const KitchenBar = (props) => {
     </li>
   ;
 
-
   return (
     /* eslint-disable jsx-a11y/anchor-is-valid */
     <div className="nav">
@@ -45,7 +44,7 @@ const KitchenBar = (props) => {
         </li>
       </ul>
     </div>
-  )
-}
+  );
+};
 
 export default KitchenBar;

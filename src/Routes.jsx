@@ -6,11 +6,13 @@ import Serve from './components/Serve/Serve';
 
 
 const Routes = (props) => {
-  const { data, setData, status, setStatus, unsubscribe } = props;
+  const { menu, data, setData, status, setStatus } = props;
   return (
   <Switch>
     <Route path="/menu">
-      <WaiterScreen />
+      <WaiterScreen 
+        menu={menu}
+      />
     </Route>
     <Route path="/serve">
       <Serve 
@@ -25,7 +27,6 @@ const Routes = (props) => {
       setData={setData}
       status={status}
       setStatus={setStatus}
-      unsubscribe={unsubscribe}
       />
     </Route>
   </Switch>

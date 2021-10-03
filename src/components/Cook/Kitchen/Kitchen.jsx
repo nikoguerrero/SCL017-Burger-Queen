@@ -6,7 +6,6 @@ import Tickets from '../Tickets/Tickets';
 const Kitchen = (props) => {
   const { data, status, setStatus } = props;
   let filteredData = data;
-  console.log(status);
 
   switch (status) {
     case 'new':
@@ -30,6 +29,7 @@ const Kitchen = (props) => {
       />
       <KitchenBar 
       setStatus={setStatus}
+      status={status}
       />
     </div>
   )

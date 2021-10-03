@@ -10,6 +10,7 @@ import { db } from '../../firebase';
 const MainContent = () => {
   const [data, setData] = useState([]);
   const [status, setStatus] = useState('all orders');
+  const [menu, setMenu] = useState(null);
 
   useEffect(() => {
     const orderCollection = db.collection('orders').orderBy('orderDate', 'desc');
@@ -25,7 +26,13 @@ const MainContent = () => {
     return () => unsuscribe;
   }, []);
 
-  return (
+  useEffect(() => {
+    fetch('menu.json')
+      .then((response) => response.json())
+      .then((json) => setMenu(json));
+  }, []);
+
+  return menu != null ? (
     <div className="general-grid">
       <div className="header-main">
         <div className="image-container">
@@ -44,9 +51,10 @@ const MainContent = () => {
       setData={setData}
       status={status}
       setStatus={setStatus}
+      menu={menu}
       />
     </div>
-  )
+  ) : ( <p>LOADING</p> )
 };
 
 export default MainContent;

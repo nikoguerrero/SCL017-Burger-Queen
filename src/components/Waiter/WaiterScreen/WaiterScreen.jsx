@@ -4,23 +4,23 @@ import Order from '../Order/Order';
 import Table from '../Table/Table';
 import Menu from '../Menu/Menu';
 import Navbar from '../Navbar/Navbar';
-import foodItems from '../../../menu.json';
 import { db, auth } from '../../../firebase';
 
-const WaiterScreen = () => {
-  const recommendations = [];
-  for (const recommendation of foodItems.recommendations) {
-    recommendations.push(foodItems[recommendation.menuName][recommendation.index]);
-  }
-
+const WaiterScreen = (props) => {
+  const { menu } = props;
   const setMenuItems = (oldCategory, category) => {
     switch (category) {
       case 'recommendations': {
-        items = recommendations;
+        const recommendations = [];
+        for (const recommendation of menu.recommendations) {
+          recommendations.push(menu[recommendation.menuName][recommendation.index]);
+        }
+        setItems(recommendations);
+      
         break;
       }
       default:
-        items = foodItems[category];
+        setItems(menu[category]);
         break;
     }
     return category;
@@ -71,11 +71,15 @@ const WaiterScreen = () => {
     getData();
   }, []);
 
-  let items = recommendations;
+  const [items, setItems] = useState([]);
   const [order, setOrder] = useState([]);
   const [category, setCategory] = useReducer(setMenuItems, 'recommendations', initItems);
   const [table, setTable] = useState(null);
   const [name, setName] = useState([]);
+
+  useEffect(() => {
+    setCategory('recommendations');
+  }, [menu]);
 
 
   return (
@@ -84,12 +88,12 @@ const WaiterScreen = () => {
         addToOrder={addToOrder}
         items={items}
         category={category}
-      ></Menu>
+      />
       <Table
         setTable={setTable}
         cleanOrder={cleanOrder}
         name={name}
-      ></Table>
+      />
       <Order
         order={order}
         addToOrder={addToOrder}
@@ -97,10 +101,10 @@ const WaiterScreen = () => {
         table={table}
         cleanOrder={cleanOrder}
         name={name}
-      ></Order>
+      />
       <Navbar
         setCategory={setCategory}
-      ></Navbar>
+      />
     </div>
   )
 }

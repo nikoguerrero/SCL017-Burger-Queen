@@ -13,7 +13,7 @@ export default function Main(props) {
 
   return (
     <main className="menu-grid">
-        {menuItems}
+        {items && items.length > 0 && menuItems}
     </main>
   );
 }
