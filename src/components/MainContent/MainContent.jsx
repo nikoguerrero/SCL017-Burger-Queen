@@ -49,7 +49,7 @@ const MainContent = () => {
         : null }
         {location === "/serve" ?
         <Link to="/menu" className="link-to-btn">
-          <img src={menuicon} className="orders-ready"/>
+          <img src={menuicon} alt="menu icon" className="orders-ready"/>
         </Link>
         : null }
       </div>

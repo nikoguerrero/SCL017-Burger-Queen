@@ -6,44 +6,26 @@ const Admin = () => {
   const [email, setEmail] = useState('');
   const [pass, setPass] = useState('');
   const [username, setUsername] = useState('');
-  const [checked, setChecked] = useState(false);
-  const handleChange = (e) => {
-    setChecked(e.target.name);
-  }
+  const [role, setRole] = useState('admin');
+
   const [error, setError] = useState(null);
-  console.log(checked);
 
   const Register = useCallback(async(e) => {
+    console.log(role);
     e.preventDefault();
-    try {
+    // try {
         const res = await auth.createUserWithEmailAndPassword(email, pass)
         console.log(res.user)
-        // console.log(role)
-        await db.collection('usersData').doc(res.user.uid).set({
-            creationDate: Date.now(),
+        
+        await db.collection('users').doc(res.user.uid).set({
+            name: username,
+            role: role,
             displayName: username,
             email: res.user.email,
             uid: res.user.uid,
-            // username: username,
-            // role: role
+            creationDate: Date.now(),
         });
-
-        // setEmail('')
-        // setPass('')
-        // setError(null)
-        // props.history.push('/admin') 
-    } catch (error) {
-        console.log(error)
-        if(error.code === 'auth/email-already-in-use'){
-            setError('User already registered');
-            return;
-        }
-        if(error.code === 'auth/invalid-email'){
-            setError('Invalid email');
-            return;
-        }
-    }
-}, [email, pass, username]); 
+}, [email, pass, username, role]); 
 
 
 
@@ -52,62 +34,69 @@ const Admin = () => {
       <div className="form-grid">
         ADD NEW USER
           <form className="form-container" onSubmit={Register}>
-          <label>
-            Name
-            <input 
-              type="text" 
-              className="form-input user" 
-              onChange={ (e) => setUsername(e.target.value)} 
-              value={username}/>
-          </label>
-          <label>
-            Email
-            <input 
-              type="email" 
-              placeholder="Email" 
-              className="form-input user" 
-              onChange={ (e) => setEmail(e.target.value)} 
-              value={email}/>
-          </label>
-          <label>
-            Password
-            <input 
-              type="password" 
-              placeholder="Password" 
-              className="form-input password" 
-              onChange={ (e) => setPass(e.target.value)} 
-              value={pass}/>
-          </label>
-          <div className="checkbox-container">
-            ROLE
-            <div className="checkbox-wrapper">
-              <label>
-                Waiter
-                <input
-                name="waiter"
-                type="checkbox"
-                checked={checked}
-                // onChange={(e) => setChecked(e.target.name)}
-                onChange={handleChange}
-                />
-              </label>
-              <label>
-                Cook
-                <input
-                name="cook"
-                type="checkbox"
-                checked={checked}
-                // onChange={(e) => setChecked(e.target.name)}
-                onChange={handleChange}
-                />
-              </label>
+            <label>
+              Name
+              <input 
+                type="text" 
+                className="form-input user" 
+                onChange={ (e) => setUsername(e.target.value)} 
+                value={username}/>
+            </label>
+            <label>
+              Email
+              <input 
+                type="email" 
+                placeholder="Email" 
+                className="form-input user" 
+                onChange={ (e) => setEmail(e.target.value)} 
+                value={email}/>
+            </label>
+            <label>
+              Password
+              <input 
+                type="password" 
+                placeholder="Password" 
+                className="form-input password" 
+                onChange={ (e) => setPass(e.target.value)} 
+                value={pass}/>
+            </label>
+            <div className="checkbox-container">
+              <h1>Radio button is: {role} </h1>
+              <div className="checkbox-wrapper">
+                <label>
+                  Admin
+                </label>
+                  <input
+                  type="radio"
+                  checked={role === "admin"}
+                  value="admin"
+                  onChange={(e) => setRole(e.target.value)}
+                  />
+                <label>
+                  Waiter
+                </label>
+                  <input
+                  type="radio"
+                  checked={role === "waiter"}
+                  value="waiter"
+                  onChange={(e) => setRole(e.target.value)}
+                  />
+                <label>
+                  Cook
+                </label>
+                  <input
+                  type="radio"
+                  checked={role === "cook"}
+                  value="cook"
+                  onChange={(e) => setRole(e.target.value)}
+                  />
+              </div>
             </div>
-          </div>
-            <button 
-              className="btn" 
-              type="submit"
-              >SIGN UP</button>
-          </form>
+              <button 
+                className="btn" 
+                type="submit"
+                >SIGN UP</button>
+            </form>
           <div className="sections-menu">
             <Link to="/menu">
               <button className="waiter-btn">
