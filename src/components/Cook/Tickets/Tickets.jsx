@@ -27,7 +27,6 @@ const Tickets = (props) => {
     }
   };
 
-  
   return (
     <Fragment>
       <div className="order-tickets-container">

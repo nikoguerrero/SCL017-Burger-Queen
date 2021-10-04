@@ -1,5 +1,5 @@
-import React, { useState, useEffect, Fragment } from 'react';
-import { Switch, Route, withRouter, Redirect, useHistory, useLocation } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { Switch, Route, withRouter } from 'react-router-dom';
 import Admin from './components/Admin/Admin';
 import WaiterScreen from './components/Waiter/WaiterScreen/WaiterScreen';
 import Kitchen from './components/Cook/Kitchen/Kitchen';
@@ -9,11 +9,9 @@ import { auth } from './firebase';
 const Routes = (props) => {
   const { menu, data, setData, status, setStatus, userData } = props;
   const [user, setUser] = useState(null);
-  console.log(userData);
 
   useEffect(() => {
       if (auth.currentUser) {
-        console.log('usuario conectado',  userData)
         if (userData.role === 'waiter') {
           props.history.push('/menu');
         } else if (userData.role === 'cook') {
@@ -24,18 +22,10 @@ const Routes = (props) => {
         setUser(auth.currentUser)
       } else {
         props.history.push('/');
-        console.log('usuario no conectado')
       }
-  }, [props.history]);
+  }, [props.history, userData]);
 
-  // const history = useHistory().goBack();
-  // // console.log(history);
-
-  const location = useLocation();
-  const referer = location.state
-  console.log(referer)
-
-  return (
+  return user && (
     <Switch>
       <Route path="/menu">
         <WaiterScreen 

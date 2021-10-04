@@ -15,26 +15,22 @@ const App = () => {
     auth.onAuthStateChanged(user => {
       if (user) {
         setUser(user);
-        console.log('usuario existente')
       } else {
         setUser(null);
-        console.log('usuario no existe')
       }
       setLoading(false);
     })
   }, []);
 
-  console.log(user);
-
   return !loading && (
-      <Router>
-        <Switch>
-        <Route path="*" exact>
-          { user !== null ? ( <MainContent /> ) : ( <Login /> )}
-        </Route>
-        </Switch>
-      </Router>
-  ) 
+    <Router>
+      <Switch>
+      <Route path="*" exact>
+        { user !== null ? ( <MainContent /> ) : ( <Login /> )}
+      </Route>
+      </Switch>
+    </Router>
+  );
 };
 
 export default App;
