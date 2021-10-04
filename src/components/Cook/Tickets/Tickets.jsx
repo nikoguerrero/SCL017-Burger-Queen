@@ -5,6 +5,13 @@ import TicketItem from './TicketItem';
 
 const Tickets = (props) => {
   const { data } = props;
+  const statusNames = [
+    { name: 'START', btnClass: '', orderClass: ''} ,
+    { name: 'READY!', btnClass: '', orderClass: 'order-data-active' },
+    { name: 'READY!', btnClass: 'ticket-btn-deactivated', orderClass: 'order-data-ready'},
+    { name: 'DELIVER', btnClass: '', orderClass: ''},
+    { name: 'DELIVERED', btnClass: 'ticket-btn-deactivated', orderClass: 'order-data-ready'}
+  ];
 
   const changeStatus = async (e) => {
     const orderDoc = db.collection('orders').doc(e.target.id);
@@ -18,7 +25,8 @@ const Tickets = (props) => {
         status: 2
       });
     }
-  }
+  };
+
   
   return (
     <Fragment>
@@ -29,6 +37,7 @@ const Tickets = (props) => {
           item={item}
           changeStatus={changeStatus}
           key={item.id}
+          statusNames={statusNames}
           />)}
         </div>
       </div>

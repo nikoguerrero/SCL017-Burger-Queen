@@ -1,15 +1,7 @@
 import React from 'react';
 
 const TicketItem = (props) => {
-  const { item, changeStatus } = props;
-  const statusNames = [
-    { name: 'START', btnClass: '', orderClass: ''} ,
-    { name: 'READY!', btnClass: '', orderClass: 'order-data-active' },
-    { name: 'READY!', btnClass: 'ticket-btn-deactivated', orderClass: 'order-data-ready'},
-    { name: 'DELIVER', btnClass: '', orderClass: ''},
-    { name: 'DELIVERED', btnClass: 'ticket-btn-deactivated', orderClass: 'order-data-ready'}
-  ];
-
+  const { item, changeStatus, statusNames } = props;
   const currentStatus = statusNames[item.status];
   const orderClassName = `order-data ${currentStatus.orderClass}`;
   const buttonClassName = `ticket-btn ${currentStatus.btnClass}`;

@@ -12,7 +12,7 @@ const Logout = (props) => {
         .then(() => {
             props.history.push('/');
         });
-  }
+  };
 
   const AlertLogout = () => (
     <div className="modal">
