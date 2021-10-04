@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react';
-import TicketItem from '../Cook/Tickets/TicketItem';
+import TicketItem from '../../Cook/Tickets/TicketItem';
 
 const ServeItem = (props) => {
   const { item, changeStatus } = props;

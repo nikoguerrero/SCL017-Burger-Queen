@@ -3,21 +3,21 @@ import title from './images/apptitle.png';
 import Logout from '../Logout/Logout';
 import '../Logout/Logout.css';
 import { Link, useLocation } from 'react-router-dom';
-import Routes from '../../Routes';
+import MainRoutes from './MainRoutes';
 import './MainContent.css';
 import { db, auth } from '../../firebase';
 import serveicon from './images/serveicon.png';
 import menuicon from './images/menuicon.png';
 import kitchenicon from './images/kitchenicon.png';
 import adminicon from './images/adminicon.png';
-import Loading from '../../Loading';
+import Loading from '../Loading/Loading';
 
 const MainContent = () => {
   const [data, setData] = useState([]);
   const [status, setStatus] = useState('all orders');
   const [menu, setMenu] = useState(null);
   const [userData, setUserData] = useState(null);
-  let location = useLocation().pathname;
+  const location = useLocation().pathname;
 
   useEffect(() => {
     const orderCollection = db.collection('orders').orderBy('orderDate', 'desc');
@@ -59,29 +59,29 @@ const MainContent = () => {
           <img src={ title } alt="app name" className="img-title"></img>
         </div>
         <div className="links-container">
-          { userData.role === "admin" && location !== "/admin" ?
+          { userData.role && location !== "/admin" ?
           <Link to="/admin">
             <img src={ adminicon } alt="admin icon" className="link-icon"/>
           </Link>
           : null }
-          {userData.role === "admin" ?
+          { userData.role ?
           <Link to="/kitchen">
             <img src={ kitchenicon } alt="kitchen icon" className="link-icon"/>
           </Link>
           : null }
-          { userData.role === "admin" || location === "/serve" ?
+          { userData.role || location === "/serve" ?
           <Link to="/menu">
             <img src={ menuicon } alt="menu icon" className="link-icon"/>
           </Link>
           : null }
-          { userData.role === "admin" || location === "/menu" ?
+          { userData.role || location === "/menu" ?
           <Link to="/serve">
             <img src={ serveicon } alt="order icon" className="link-icon"/>
           </Link>
           : null }
         </div>
       </div>
-      <Routes 
+      <MainRoutes 
       data={data}
       setData={setData}
       status={status}

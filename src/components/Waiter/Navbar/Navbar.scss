@@ -1,22 +1,4 @@
 
-:root {
-  --clr-gray100: #f0f7f8;
-  --clr-gray200: #cfd8dc;
-  --clr-gray300: #a7b7be;
-  --clr-gray400: #6b7e86;
-  --clr-gray500: #425a65;
-
-  /*   border radius */
-  --radius: 0.2rem;
-}
-
-*,
-*::before,
-*::after {
-  margin: 0;
-  padding: 0;
-}
-
 body {
   font-family: Montserrat, sans-serif;
   background: var(--clr-tertiary);

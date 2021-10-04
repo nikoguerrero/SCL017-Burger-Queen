@@ -7,11 +7,12 @@ import {
   Switch,
   Route
 } from 'react-router-dom';
-import Loading from './Loading';
+import Loading from './components/Loading/Loading';
 
 const App = () => {
   const [loading, setLoading] = useState(true);
   const [user, setUser] = useState(null);
+
   useEffect(() => {
     auth.onAuthStateChanged(user => {
       if (user) {
@@ -33,7 +34,7 @@ const App = () => {
     </Router>
   ) : (
     <Loading />
-  )
+  );
 };
 
 export default App;

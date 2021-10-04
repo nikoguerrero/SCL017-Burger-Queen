@@ -1,5 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Fredoka+One&family=Roboto:wght@400;900&display=swap');
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+}
 
 :root {
   --clr-primary: #F5B994;
@@ -9,6 +15,11 @@
   --clr-background: #ECECEC;
   --clr-negative: #E5E5E5;
   --clr-text: #878787;
+  --clr-gray100: #f0f7f8;
+  --clr-gray200: #cfd8dc;
+  --clr-gray300: #a7b7be;
+  --clr-gray400: #6b7e86;
+  --clr-gray500: #425a65;
   --radius: 0.2rem;
 }
 
@@ -20,7 +31,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: var(--clr-primary);
+  background: var(--clr-tertiary);
 }
 
 code {

@@ -13,15 +13,6 @@ const KitchenBar = (props) => {
     this.classList.add("nav__item-active");
   }
 
-  const NavLink = () =>
-  /* eslint-disable jsx-a11y/anchor-is-valid */
-    <li className="nav__item" onClick={() => setStatus('active')}>
-      <a>
-        <p>ACTIVE</p>
-      </a>
-    </li>
-  ;
-
   return (
     /* eslint-disable jsx-a11y/anchor-is-valid */
     <div className="nav">
@@ -36,7 +27,12 @@ const KitchenBar = (props) => {
             <p>NEW</p>
           </a>
         </li>
-        {useLocation().pathname === '/kitchen' ? <NavLink /> : null }
+        {useLocation().pathname === '/kitchen' ? 
+        <li className="nav__item" onClick={() => setStatus('active')}>
+          <a>
+            <p>ACTIVE</p>
+          </a>
+        </li> : null }
         <li className="nav__item" onClick={() => setStatus('done')}>
           <a>
             <p>DONE</p>

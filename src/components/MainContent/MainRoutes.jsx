@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { Switch, Route, withRouter } from 'react-router-dom';
-import Admin from './components/Admin/Admin';
-import WaiterScreen from './components/Waiter/WaiterScreen/WaiterScreen';
-import Kitchen from './components/Cook/Kitchen/Kitchen';
-import Serve from './components/Serve/Serve';
-import { auth } from './firebase';
+import Admin from '../Admin/Admin';
+import WaiterScreen from '../Waiter/WaiterScreen/WaiterScreen';
+import Kitchen from '../Cook/Kitchen/Kitchen';
+import Serve from '../Waiter/Serve/Serve';
+import { auth } from '../../firebase';
 
-const Routes = (props) => {
+const MainRoutes = (props) => {
   const { menu, data, setData, status, setStatus, userData } = props;
   const [user, setUser] = useState(null);
 
@@ -48,13 +48,11 @@ const Routes = (props) => {
         setStatus={setStatus}
         />
       </Route>
-      {/* {userData.role === 'admin' && ( */}
       <Route path="/admin">
         <Admin />
       </Route>
-      {/* ) } */}
     </Switch>
-  )
+  );
 };
 
-export default withRouter(Routes);
+export default withRouter(MainRoutes);
