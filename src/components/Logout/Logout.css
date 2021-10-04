@@ -1,6 +1,6 @@
 .logout-btn {
   width: 60px;
-  margin-left: 6%;
+  margin-left: 4%;
 }
 
 .message-text {
@@ -23,5 +23,9 @@
 @media (min-device-width: 1024px) and (max-device-width: 1366px) and (orientation:landscape)  {
   .btn-container {
     justify-content: space-evenly;
+  }
+
+  .logout-btn {
+    margin-left: 3%;
   }
 }

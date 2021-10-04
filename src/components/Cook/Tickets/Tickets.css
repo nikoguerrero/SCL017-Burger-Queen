@@ -88,7 +88,7 @@
 
 @media (min-device-width: 1024px) and (max-device-width: 1366px) and (orientation:landscape)  {
   .order-tickets-container {
-    grid-template-columns: 2% 5fr 2%;
+    grid-template-columns: 3% 5fr 3%;
     overflow-x: scroll;
     -ms-overflow-style: none;
     width: 100%;
