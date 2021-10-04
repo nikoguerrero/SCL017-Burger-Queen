@@ -1,18 +1,6 @@
-.right-corner-container {
-  display: flex;
-  grid-column: 2;
-  grid-row: 1;
-  flex-direction: row;
-  justify-content: flex-end;
-  margin-left: 5%;
-}
-
 .logout-btn {
-  height: 40%;
-  /* margin-top: 20%;
-  margin-bottom: -10%;
-  margin-right: 50%; */
-  width: 80%
+  width: 60px;
+  margin-left: 6%;
 }
 
 .message-text {

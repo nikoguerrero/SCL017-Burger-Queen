@@ -97,8 +97,13 @@
   padding-right: 20px;
 }
 
+.email {
+  background: var(--clr-background) url(images/email.png) right no-repeat scroll;
+  background-size: 10%;
+  padding-right: 20px;
+}
+
 .btn {
-  /* min-height: 3.125rem; */
   width: 400px;
   height: 63px;
   background-color: var(--clr-reddish);
@@ -113,7 +118,7 @@
   color: #A2A2A2;
 }
 
-@media (min-width: 1366px) {
+@media (min-device-width: 1024px) and (max-device-width: 1366px) and (orientation:landscape)  {
   .grid {
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 3fr 1fr;

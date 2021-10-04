@@ -1,5 +1,5 @@
 import React, { useState, useEffect, Fragment } from 'react';
-import { Switch, Route, withRouter, Redirect, useHistory } from 'react-router-dom';
+import { Switch, Route, withRouter, Redirect, useHistory, useLocation } from 'react-router-dom';
 import Admin from './components/Admin/Admin';
 import WaiterScreen from './components/Waiter/WaiterScreen/WaiterScreen';
 import Kitchen from './components/Cook/Kitchen/Kitchen';
@@ -19,8 +19,12 @@ const Routes = (props) => {
       }
   }, [props.history]);
 
-  const history = useHistory().goBack();
-  console.log(history);
+  // const history = useHistory().goBack();
+  // // console.log(history);
+
+  const location = useLocation();
+  const referer = location.state
+  console.log(referer)
 
   return (
     <Switch>

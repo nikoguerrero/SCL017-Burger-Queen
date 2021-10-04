@@ -34,9 +34,7 @@ const Logout = (props) => {
 
   return (
     <Fragment>
-      <div className="right-corner-container">
         <img src= { logoutImg } alt="logout icon" className="logout-btn" onClick={() => showModal()}></img>
-      </div>
       {message ?  <AlertLogout message={showModal}/> : null}
     </Fragment>
   )

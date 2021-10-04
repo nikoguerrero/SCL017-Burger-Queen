@@ -9,6 +9,7 @@ import { db, auth } from '../../firebase';
 import serveicon from './images/serveicon.png';
 import menuicon from './images/menuicon.png';
 import kitchenicon from './images/kitchenicon.png';
+import adminicon from './images/adminicon.png';
 
 const MainContent = () => {
   const [data, setData] = useState([]);
@@ -41,9 +42,9 @@ const MainContent = () => {
     const getData = async () => {
       const currentUser = auth.currentUser;
       if (currentUser !== null) {
-        const waitersData = await db.collection('users').doc(currentUser.uid).get();
-        const waiterName = waitersData.data();
-        setUserData(waiterName);
+        const userCollection = await db.collection('users').doc(currentUser.uid).get();
+        const userDoc = userCollection.data();
+        setUserData(userDoc);
       }
     }
     getData();
@@ -52,25 +53,32 @@ const MainContent = () => {
   return menu && userData != null ? (
     <div className="general-grid">
       <div className="header-main">
-       <Logout />
-        <div className="image-container">
+        <div className="left-side">
+          <Logout />
           <img src={ title } alt="app name" className="img-title"></img>
         </div>
-        {location === "/menu" ?
-        <Link to="/serve" className="link-to-btn">
-          <img src={ serveicon } alt="order icon" className="orders-ready"/>
-        </Link>
-        : null }
-        {location === "/serve" || location === "/admin" ?
-        <Link to="/menu" className="link-to-btn">
-          <img src={ menuicon } alt="menu icon" className="orders-ready"/>
-        </Link>
-        : null }
-        {location === "/admin" ?
-        <Link to="/kitchen" className="link-to-btn">
-          <img src={ kitchenicon } alt="kitchen icon" className="kitchen-icon"/>
-        </Link>
-        : null }
+        <div className="links-container">
+          { userData.role === "admin" && location !== "/admin" ?
+          <Link to="/admin">
+            <img src={ adminicon } alt="admin icon" className="link-icon"/>
+          </Link>
+          : null }
+          {userData.role === "admin" ?
+          <Link to="/kitchen">
+            <img src={ kitchenicon } alt="kitchen icon" className="link-icon"/>
+          </Link>
+          : null }
+          { userData.role === "admin" || location === "/serve" ?
+          <Link to="/menu">
+            <img src={ menuicon } alt="menu icon" className="link-icon"/>
+          </Link>
+          : null }
+          { userData.role === "admin" || location === "/menu" ?
+          <Link to="/serve">
+            <img src={ serveicon } alt="order icon" className="link-icon"/>
+          </Link>
+          : null }
+        </div>
       </div>
       <Routes 
       data={data}

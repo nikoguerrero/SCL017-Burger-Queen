@@ -1,6 +1,6 @@
 import React, { Fragment, useState, useCallback } from 'react';
 import {db, auth} from '../../firebase';
-import { Link } from 'react-router-dom';
+import './Admin.css';
 
 const Admin = () => {
   const [email, setEmail] = useState('');
@@ -22,89 +22,68 @@ const Admin = () => {
             uid: res.user.uid,
             creationDate: Date.now(),
         });
+        setEmail('');
+        setPass('');
+        setUsername('');
 }, [email, pass, username, role]); 
 
   return (
     <Fragment>
-      <div className="form-grid">
-        ADD NEW USER
-          <form className="form-container" onSubmit={Register}>
-            <label>
-              Name
-              <input 
+      <section className="admin-grid">
+        <div className="admin-form">
+          <h1 className="title-admin">Add new user</h1>
+            <form className="form-wrapper" onSubmit={Register}>
+              <div className="inputs-container">
+               <input 
                 type="text" 
+                placeholder="Username" 
                 className="form-input user" 
                 onChange={ (e) => setUsername(e.target.value)} 
                 value={username}/>
-            </label>
-            <label>
-              Email
               <input 
                 type="email" 
                 placeholder="Email" 
-                className="form-input user" 
+                className="form-input email" 
                 onChange={ (e) => setEmail(e.target.value)} 
                 value={email}/>
-            </label>
-            <label>
-              Password
               <input 
                 type="password" 
                 placeholder="Password" 
                 className="form-input password" 
                 onChange={ (e) => setPass(e.target.value)} 
                 value={pass}/>
-            </label>
-            <div className="checkbox-container">
-              <h1>Radio button is: {role} </h1>
-              <div className="checkbox-wrapper">
-                <label>
-                  Admin
-                </label>
+              </div>
+              <div className="radio-container">
                   <input
                   type="radio"
                   checked={role === "admin"}
                   value="admin"
                   onChange={(e) => setRole(e.target.value)}
                   />
-                <label>
-                  Waiter
-                </label>
+                  <label>Admin</label>
                   <input
                   type="radio"
                   checked={role === "waiter"}
                   value="waiter"
                   onChange={(e) => setRole(e.target.value)}
                   />
-                <label>
-                  Cook
-                </label>
+                  <label>Waiter</label>
                   <input
                   type="radio"
                   checked={role === "cook"}
                   value="cook"
                   onChange={(e) => setRole(e.target.value)}
                   />
+                  <label>Cook</label>
               </div>
-            </div>
-              <button 
-                className="btn" 
-                type="submit"
-                >SIGN UP</button>
-            </form>
-          <div className="sections-menu">
-            <Link to="/menu">
-              <button className="waiter-btn">
-                WAITER MENU
-              </button>
-            </Link>
-            <Link to="/kitchen">
-              <button className="waiter-btn">
-                KITCHEN
-              </button>
-            </Link>
-          </div>
-      </div>
+                <button 
+                  className="btn" 
+                  type="submit">
+                  SIGN UP
+                </button>
+              </form>
+        </div>
+      </section>
     </Fragment>
   );
 };

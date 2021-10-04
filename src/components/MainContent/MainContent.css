@@ -1,42 +1,41 @@
 .general-grid {
   display: grid;
-  /* grid-template-columns: fit-content(65%) 1fr; */
   grid-template-rows: fit-content(20%) 1fr 1fr;
   height: 100vh;
 }
 
 .header-main {
-  display: flex;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
   align-items: center;
-  /* padding: 0% 15%; */
-  /* justify-content:flex-end; */
+  margin-top: 1%;
+  justify-content: flex-end;
 }
 
-.image-container {
+.left-side {
+  grid-column: 1;
   display: flex;
-  /* justify-content: center; */
+  flex-direction: row;
+  justify-content: flex-start;
 }
 
 .img-title {
-  width: 40%;
-  margin: 2%;
+  width: 16rem;
 }
 
-.link-to-btn {
-  grid-row: 1;
+.links-container {
   grid-column: 2;
-  justify-content: flex-end;
-  margin-left: 30%;
+  display: flex;
+  flex-direction: row;
+  flex-grow: 0;
+  gap: 20px;
+  justify-content: flex-end
 }
 
-.orders-ready {
- width: 60%;
- margin-top: 20%
-}
-
-.kitchen-icon {
-  width: 60%;
-  margin-top: 20%
+.link-icon {
+  width: 60px;
+  margin-top: 20%;
+  margin-left: -50%;
 }
 
 @media (min-device-width: 1024px) and (max-device-width: 1366px) and (orientation:landscape)  {
