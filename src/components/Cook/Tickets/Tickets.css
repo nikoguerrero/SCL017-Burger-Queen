@@ -53,19 +53,45 @@
   background: #1AD264;
 }
 
+.center-container {
+  height: 70%;
+}
+
+.ticket-elements {
+  height: 72%;
+  overflow-y: scroll;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  padding-bottom: 10%;
+}
+
 .right-data {
   flex-direction: column;
 }
 
+.waiter-info, .time-info {
+  font-size: 1.2rem;
+}
+
 .table-number-order {
   font-weight: 600;
-  font-size: 1.3rem;
+  font-size: 1.5rem;
 }
 
 .items-list {
   list-style: none;
   margin: 5% 5% 0% 5%;
   flex-wrap: wrap;
+  font-size: 1.2rem;
+}
+
+.more-items {
+  font-size: 1.5rem;
+  font-weight: 700;
+  text-align: center;
+  background: #ECECEC;
+  height: 55px;
+  line-height: 55px;
 }
 
 .ticket-btn {

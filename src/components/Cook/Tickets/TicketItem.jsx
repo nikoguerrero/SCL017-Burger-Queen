@@ -19,15 +19,22 @@ const TicketItem = (props) => {
       <div className={orderClassName}>
         <ul className="right-data">
           <div className="table-number-order">{item.tableNumber.toUpperCase()}</div>
-          <div>{item.waiterName}</div>
+          <div className="waiter-info">{item.waiterName}</div>
         </ul>
-        <div>{item.orderDate.toDate().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit', hour12: false})}hrs</div>
+        <div className="time-info">{item.orderDate.toDate().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit', hour12: false})}hrs</div>
       </div>
-      {item.orderItems.map((order) => (
-        <ul key={order.id} className="items-list">
-          <li>{order.qty} x {order.name}</li>
-        </ul>
-      ))}
+      <div className="center-container">
+        <div className="ticket-elements">
+        {item.orderItems.map((order) => (
+          <ul key={order.id} className="items-list">
+            <li>{order.qty} x {order.name}</li>
+          </ul>
+        ))}
+        </div>
+        {item.orderItems.length > 7 ?
+        <div className="more-items">More items...</div>
+        : null}
+      </div>
       <button 
         className={buttonClassName}
         id={item.id} 
@@ -36,8 +43,7 @@ const TicketItem = (props) => {
         {currentStatus.name}
       </button>
     </section>
-  )
-
+  );
 };
 
 export default TicketItem;
