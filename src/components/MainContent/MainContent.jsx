@@ -11,7 +11,7 @@ import menuicon from './images/menuicon.png';
 import kitchenicon from './images/kitchenicon.png';
 import adminicon from './images/adminicon.png';
 
-const MainContent = () => {
+const MainContent = (props) => {
   const [data, setData] = useState([]);
   const [status, setStatus] = useState('all orders');
   const [menu, setMenu] = useState(null);
@@ -33,12 +33,6 @@ const MainContent = () => {
   }, []);
 
   useEffect(() => {
-    fetch('menu.json')
-      .then((response) => response.json())
-      .then((json) => setMenu(json));
-  }, []);
-
-  useEffect(() => {
     const getData = async () => {
       const currentUser = auth.currentUser;
       if (currentUser !== null) {
@@ -48,6 +42,12 @@ const MainContent = () => {
       }
     }
     getData();
+  }, []);
+
+  useEffect(() => {
+    fetch('menu.json')
+      .then((response) => response.json())
+      .then((json) => setMenu(json));
   }, []);
 
   return menu && userData != null ? (

@@ -13,9 +13,18 @@ const Routes = (props) => {
 
   useEffect(() => {
       if (auth.currentUser) {
+        console.log('usuario conectado',  userData)
+        if (userData.role === 'waiter') {
+          props.history.push('/menu');
+        } else if (userData.role === 'cook') {
+          props.history.push('/kitchen');
+        } else if (userData.role === 'admin') {
+          props.history.push('/admin');
+        }
         setUser(auth.currentUser)
       } else {
         props.history.push('/');
+        console.log('usuario no conectado')
       }
   }, [props.history]);
 
@@ -49,13 +58,11 @@ const Routes = (props) => {
         setStatus={setStatus}
         />
       </Route>
-      {userData.role === 'admin' ? (
+      {/* {userData.role === 'admin' && ( */}
       <Route path="/admin">
         <Admin />
       </Route>
-      ) : (
-        <Fragment>Potatoe</Fragment>
-      )}
+      {/* ) } */}
     </Switch>
   )
 };

@@ -9,30 +9,32 @@ import {
 } from 'react-router-dom';
 
 const App = () => {
-  const [user, setUser] = useState(false);
-
+  const [loading, setLoading] = useState(true);
+  const [user, setUser] = useState(null);
   useEffect(() => {
     auth.onAuthStateChanged(user => {
       if (user) {
         setUser(user);
+        console.log('usuario existente')
       } else {
         setUser(null);
+        console.log('usuario no existe')
       }
+      setLoading(false);
     })
   }, []);
 
-  return user !== false ? (
+  console.log(user);
+
+  return !loading && (
       <Router>
         <Switch>
-          <Route path="/" exact>
-            <Login />
-          </Route>
-            <MainContent />
-          </Switch>
+        <Route path="*" exact>
+          { user !== null ? ( <MainContent /> ) : ( <Login /> )}
+        </Route>
+        </Switch>
       </Router>
-  ) : (
-    <p>Loading...</p>
-  );
+  ) 
 };
 
 export default App;
