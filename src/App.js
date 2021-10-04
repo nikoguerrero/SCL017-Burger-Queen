@@ -7,6 +7,7 @@ import {
   Switch,
   Route
 } from 'react-router-dom';
+import Loading from './Loading';
 
 const App = () => {
   const [loading, setLoading] = useState(true);
@@ -22,7 +23,7 @@ const App = () => {
     })
   }, []);
 
-  return !loading && (
+  return !loading ? (
     <Router>
       <Switch>
       <Route path="*" exact>
@@ -30,7 +31,9 @@ const App = () => {
       </Route>
       </Switch>
     </Router>
-  );
+  ) : (
+    <Loading />
+  )
 };
 
 export default App;

@@ -10,8 +10,9 @@ import serveicon from './images/serveicon.png';
 import menuicon from './images/menuicon.png';
 import kitchenicon from './images/kitchenicon.png';
 import adminicon from './images/adminicon.png';
+import Loading from '../../Loading';
 
-const MainContent = (props) => {
+const MainContent = () => {
   const [data, setData] = useState([]);
   const [status, setStatus] = useState('all orders');
   const [menu, setMenu] = useState(null);
@@ -89,7 +90,9 @@ const MainContent = (props) => {
       userData={userData}
       />
     </div>
-  ) : ( <p>LOADING</p> )
+  ) : ( 
+    <Loading />
+  )
 };
 
 export default MainContent;
