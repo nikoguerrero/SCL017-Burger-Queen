@@ -4,8 +4,8 @@ import TicketItem from '../Cook/Tickets/TicketItem';
 const ServeItem = (props) => {
   const { item, changeStatus } = props;
   const statusNames = [
-    { name: 'A', btnClass: '', orderClass: ''} ,
-    { name: 'B!', btnClass: '', orderClass: 'order-data-active' },
+    { name: 'START', btnClass: '', orderClass: ''} ,
+    { name: 'READY!', btnClass: '', orderClass: 'order-data-active' },
     { name: 'DELIVER', btnClass: '', orderClass: ''},
     { name: 'DELIVERED', btnClass: 'ticket-btn-deactivated', orderClass: 'order-data-ready'}
   ];

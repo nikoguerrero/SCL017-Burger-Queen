@@ -1,11 +1,10 @@
 import React, { Fragment } from 'react';
 import KitchenBar from '../Cook/KitchenBar/KitchenBar';
-// import TicketItem from '../Cook/Tickets/TicketItem';
 import ServeItem from '../Serve/ServeItem';
 import { db } from '../../firebase';
 
 const Serve = (props) => {
-  const { data, status, setStatus } = props;
+  const { data, status, setStatus, userData } = props;
   let filteredData = data;
 
   const changeStatus = async (e) => {
@@ -15,22 +14,18 @@ const Serve = (props) => {
       orderDoc.update({
         status: 3
       });
-    } else if (dataOrder.status === 3) {
-      orderDoc.update({
-        status: 4
-      });
     }
   };
 
   switch (status) {
     case 'new':
-      filteredData = data.filter((item) => item.status === 2);
+      filteredData = data.filter((item) => item.status === 2 && item.waiterId === userData.uid);
       break;
     case 'done':
-      filteredData = data.filter((item) => item.status === 3);
+      filteredData = data.filter((item) => item.status === 3 && item.waiterId === userData.uid);
       break;
     default:
-      filteredData = data.filter((item) => item.status > 1);
+      filteredData = data.filter((item) => item.status > 1 && item.waiterId === userData.uid);
       break;
   }
   
