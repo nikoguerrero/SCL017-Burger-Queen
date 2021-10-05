@@ -1,12 +1,15 @@
 import React, { Fragment, useState, useCallback } from 'react';
 import {db, auth} from '../../firebase';
 import './Admin.css';
+import checkicon from '../Waiter/Modal/images/checkicon.png';
 
 const Admin = () => {
   const [email, setEmail] = useState('');
   const [pass, setPass] = useState('');
   const [username, setUsername] = useState('');
   const [role, setRole] = useState('admin');
+  const [show, setShow] = useState(null);
+  const showModal = () => setShow(true);
 
   // const [error, setError] = useState(null);
 
@@ -22,10 +25,29 @@ const Admin = () => {
             uid: res.user.uid,
             creationDate: Date.now(),
         });
+        showModal();
         setEmail('');
         setPass('');
         setUsername('');
 }, [email, pass, username, role]); 
+
+const UserCreated = () => (
+  <div className="modal">
+    <div className="user-created-wrapper">
+      <div className="icon-container">
+        <img src={checkicon} alt="check-icon" className="confirmed-icon" />
+      </div>
+      <div className="text-container">
+      USER CREATED
+      </div>
+      <div className="btn-container">
+        <button className="btn-yes" onClick={() => setShow(false)}>
+          CLOSE
+        </button>
+      </div>
+    </div>
+  </div>
+);
 
   return (
     <Fragment>
@@ -84,6 +106,7 @@ const Admin = () => {
               </form>
         </div>
       </section>
+      {show ?  <UserCreated message={showModal}/> : null}
     </Fragment>
   );
 };

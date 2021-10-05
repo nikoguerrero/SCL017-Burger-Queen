@@ -15,7 +15,7 @@
   position: fixed;
 }
 
-.modal-content{
+.modal-content {
   grid-column: 2;
   grid-row: 2;
   max-width:100%;
@@ -143,10 +143,4 @@
   color: white;
   border: none;
   border-radius: 15px;
-}
-
-@media (min-device-width: 1024px) and (max-device-width: 1366px) and (orientation:landscape)  {
-  .alert-container {
-    height: 60%;
-  }
 }

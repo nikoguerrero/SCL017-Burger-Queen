@@ -53,6 +53,19 @@
   font-size: 1.2rem;
 }
 
+.user-created-wrapper {
+  grid-column: 2;
+  grid-row: 2;
+  background-color: #ffff;
+  border-radius: 20px;
+  z-index: 11;
+  align-self: center;
+  height: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
 label {
   margin-left: -15px;
 }

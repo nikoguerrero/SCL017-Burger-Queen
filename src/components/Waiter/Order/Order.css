@@ -142,4 +142,8 @@
     margin-bottom: 40%;
     margin-top: 8%;
   }
+
+  .alert-container {
+    height: 60%;
+  }
 }
