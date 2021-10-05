@@ -1,6 +1,7 @@
 .logout-btn {
   width: 60px;
   margin-left: 4%;
+  z-index: 1;
 }
 
 .message-text {

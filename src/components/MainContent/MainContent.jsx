@@ -59,22 +59,22 @@ const MainContent = () => {
           <img src={ title } alt="app name" className="img-title"></img>
         </div>
         <div className="links-container">
-          { userData.role && location !== "/admin" ?
+          { userData.role === "admin" && location !== "/admin" ?
           <Link to="/admin">
             <img src={ adminicon } alt="admin icon" className="link-icon"/>
           </Link>
           : null }
-          { userData.role ?
+          { userData.role === "admin" ? 
           <Link to="/kitchen">
             <img src={ kitchenicon } alt="kitchen icon" className="link-icon"/>
           </Link>
           : null }
-          { userData.role || location === "/serve" ?
+          { userData.role === "admin" || location === "/serve" ?
           <Link to="/menu">
             <img src={ menuicon } alt="menu icon" className="link-icon"/>
           </Link>
           : null }
-          { userData.role || location === "/menu" ?
+          { userData.role === "admin" || location === "/menu" ?
           <Link to="/serve">
             <img src={ serveicon } alt="order icon" className="link-icon"/>
           </Link>

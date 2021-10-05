@@ -17,10 +17,16 @@ const Serve = (props) => {
     }
   };
 
+  
+
   if (userData.role === 'admin') {
+    for (let i = 0; i < data.length; i++) {
+      console.log(data[i]);
+    }
     switch (status) {
       case 'new':
         filteredData = data.filter((item) => item.status === 2);
+        
         break;
       case 'done':
         filteredData = data.filter((item) => item.status === 3);
@@ -42,6 +48,8 @@ const Serve = (props) => {
         break;
     }
   }
+  
+  
   
   return (
     <Fragment>

@@ -5,11 +5,12 @@
   grid-template-columns: 1fr 5fr 1fr;
   box-sizing: content-box;
   width: 100%;
-  height: 90vh;
+  height: 80vh;
   overflow-y: scroll;
   -ms-overflow-style: none;
   scrollbar-width: none;
-  margin-top: 5rem;
+  margin-top: 5%;
+  padding-bottom: 10%;
 }
 
 .order-tickets-container::-webkit-scrollbar {
@@ -120,7 +121,8 @@
     overflow-x: scroll;
     -ms-overflow-style: none;
     width: 100%;
-    margin-top: 0rem;
+    height: 100vh;
+    margin-top: 0%;
   }
 
   .tickets-wrapper {

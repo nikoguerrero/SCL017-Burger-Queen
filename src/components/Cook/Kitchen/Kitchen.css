@@ -2,9 +2,8 @@
   display: grid;
   grid-template-columns: 3fr 1fr;
   grid-template-rows: fit-content(20%) 3fr;
-  /* height: 100vh; */
   width: 100vw;
   height: 80vh;
   position: fixed;
-  margin-top: 1rem;
+  margin-top: 8%;
 }
