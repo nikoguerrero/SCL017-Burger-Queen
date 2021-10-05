@@ -42,15 +42,15 @@
   "lunch": [
     {
       "id": 7,
-      "name": "Soy Burger",
+      "name": "Ñami Burger",
       "image": "https://firebasestorage.googleapis.com/v0/b/nami-town.appspot.com/o/sandwiches%2Ficons8-hamburger-100.png?alt=media&token=5b9d7306-f2e3-4b7a-8aa7-02a3a0d3e126",
-      "price": 5.00
+      "price": 10.00
     },
     {
       "id": 8,
-      "name": "Black Bean Burger",
+      "name": "Soy Burger",
       "image": "https://firebasestorage.googleapis.com/v0/b/nami-town.appspot.com/o/sandwiches%2Fblackbeanburger.png?alt=media&token=e8d1bda3-f321-41c1-b518-0217bbdb7bac",
-      "price": 10.00
+      "price": 5.00
     },
     {
       "id": 9,

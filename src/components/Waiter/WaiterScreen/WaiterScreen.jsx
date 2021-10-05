@@ -92,6 +92,7 @@ const WaiterScreen = (props) => {
       />
       <Table
         setTable={setTable}
+        table={table}
         cleanOrder={cleanOrder}
         name={name}
       />

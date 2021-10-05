@@ -3,7 +3,7 @@ import './Table.css';
 import Select from 'react-select';
 
 export default function Table(props) {
-  const { setTable, name } = props;
+  const { setTable, table, name } = props;
 
   const options = [
     { value: 'table 1', label: '1' },
@@ -41,6 +41,7 @@ export default function Table(props) {
           <div type="text" className="table-number">
             <div className="table-text">Table N° </div>
           <Select className="select-control" 
+          value={table}
           options={options} 
           styles={style}
           onChange={setTable}
