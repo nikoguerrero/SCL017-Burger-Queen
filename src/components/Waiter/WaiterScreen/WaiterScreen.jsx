@@ -70,7 +70,7 @@ const WaiterScreen = (props) => {
         setName(waiterName);
       }
     }
-    getData();
+    return getData();
   }, []);
 
   const [items, setItems] = useState([]);

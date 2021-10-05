@@ -21,7 +21,9 @@ const MainContent = () => {
 
   useEffect(() => {
     const orderCollection = db.collection('orders').orderBy('orderDate', 'desc');
-    const unsuscribe = orderCollection.onSnapshot(snapshot => {
+    // const unsuscribe = 
+    console.log('text')
+    return orderCollection.onSnapshot(snapshot => {
       const array = [];
       snapshot.forEach(doc => {
         const element = doc.data();
@@ -30,7 +32,7 @@ const MainContent = () => {
       })
       setData(array);
     });
-    return () => unsuscribe;
+    // return () => unsuscribe;
   }, []);
 
   useEffect(() => {

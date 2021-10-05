@@ -10,7 +10,7 @@
   -ms-overflow-style: none;
   scrollbar-width: none;
   margin-top: 5%;
-  padding-bottom: 10%;
+  padding-bottom: 5%;
 }
 
 .order-tickets-container::-webkit-scrollbar {
