@@ -19,9 +19,11 @@ It also includes an administrator interface for registering new users.
 The app is designed for tablets, and is responsive for portrait and landscape orientation. 
 
 ### Login/ Waiter Menu/ Admin
-![LoginVertical](https://user-images.githubusercontent.com/83680798/135952719-41dc69c2-986b-4244-a14e-bad459d5aa38.png)
-![MenuVertical](https://user-images.githubusercontent.com/83680798/135952672-c0f2a8bc-b1f3-47de-88e8-4fa8022912b9.png)
-![AdminVertical](https://user-images.githubusercontent.com/83680798/135952679-c29189f9-9b04-4be5-aa0b-26addb5b70b6.png)
+![LoginVertical](https://user-images.githubusercontent.com/83680798/136049831-e956c382-4a00-4c71-a176-9d828a141f6d.png)
+![MenuVertical](https://user-images.githubusercontent.com/83680798/136049837-2313e322-486f-44c2-be6e-17485840e52f.png)
+![AdminVertical](https://user-images.githubusercontent.com/83680798/136049847-27cbc226-0442-4223-aed6-d8200fbbd6a6.png)
+
+
 
 
 ### Kitchen
