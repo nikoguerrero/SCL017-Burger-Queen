@@ -7,8 +7,10 @@ const Modal = (props) => {
   const { onHide, order, totalOrder, table, name, cleanOrder } = props;
   const [showOrder, setShowOrder] = useState(true);
   const [showSent, setShowSent] = useState(false);
+  const [disable, setDisable] = useState(false);
 
   const sendOrder = async (order) => {
+    setDisable(true);
     if (table.value !== null) {
       const orderSent = order.map((item) => {
         const { id, name, qty } = item;
@@ -29,7 +31,7 @@ const Modal = (props) => {
       });
       setShowOrder(false);
       setShowSent(true);
-    } 
+    }
     cleanOrder();
   };
 
@@ -71,7 +73,7 @@ const Modal = (props) => {
         <button className="btn-no" onClick={onHide}>
           NO
         </button>
-        <button className="btn-yes" onClick={() => sendOrder(order)}>
+        <button className="btn-yes" disabled={disable} onClick={() => sendOrder(order)}>
           YES
         </button>
       </div>
@@ -81,7 +83,9 @@ const Modal = (props) => {
   return (
     <div className="modal">
       <div className="modal-content">
-      {showOrder ? <OrderConfirmation/>: null}
+      {showOrder ? <OrderConfirmation
+      disabled={true}
+      />: null}
       {showSent ? <OrderSent/>: null}
       </div>
     </div>
