@@ -1,6 +1,6 @@
 # ÑAMI TOWN
 
-## Índice
+## Index
 
 * [Ñami Town](#ñami-town)
 * [Interface](#interface)
@@ -16,7 +16,7 @@ Meanwhile, the kitchen workers can retrieve those orders and update them accordi
 It also includes an administrator interface for registering new users.
 
 ## Interface
-The app is designed for tablets, and is responsive for vertical or horizontal use. 
+The app is designed for tablets, and is responsive for portrait and landscape orientation. 
 
 ### Login/ Waiter Menu/ Admin
 ![LoginVertical](https://user-images.githubusercontent.com/83680798/135952719-41dc69c2-986b-4244-a14e-bad459d5aa38.png)
@@ -46,10 +46,18 @@ Pastel colors and cute icons were used for the design.
 <details>
   <summary> Click to see </summary>
   
-![Login Vertical](https://user-images.githubusercontent.com/83680798/135953319-561b0645-24b1-4462-a1ff-dd4eb97ecc01.png)
-![Mesero 1 Vertical](https://user-images.githubusercontent.com/83680798/135953322-4a9e8a01-ebd2-4040-94a0-2ed5fb2ee0b7.png)
-![Mesero 2 Vertical](https://user-images.githubusercontent.com/83680798/135953326-2f6cbbce-3d87-4be4-be8a-63ecc25c956f.png)
-![Cocina Vertical](https://user-images.githubusercontent.com/83680798/135953327-c1fffcc2-3659-43a9-9905-b45965d66251.png)
+<br>
+  
+**PORTRAIT**
+  
+![Login Vertical](https://user-images.githubusercontent.com/83680798/136032154-0935d3b1-9fec-44d6-a9db-8423eceafa5f.png)
+![Mesero 1 Vertical](https://user-images.githubusercontent.com/83680798/136032150-f41f02ee-e1da-42c5-8510-de141e322021.png)
+![Mesero 2 Vertical](https://user-images.githubusercontent.com/83680798/136032159-0cb81085-fbad-4179-956e-8a45cab7ec86.png)
+![Cocina Vertical](https://user-images.githubusercontent.com/83680798/136032157-431c189e-6c41-4dab-8e0c-286b4705a5e7.png)
+
+
+**LANDSCAPE**
+  
 ![Login Horizontal](https://user-images.githubusercontent.com/83680798/135953318-c649b539-840c-4e27-b7a2-7882bba15d01.png)
 ![Mesero 1 Horizontal](https://user-images.githubusercontent.com/83680798/135953320-c628ed13-b3f4-4733-b44c-b9eeaa590c02.png)
 ![Mesero 2 Horizontal](https://user-images.githubusercontent.com/83680798/135953325-df3d665b-1a42-4502-9f80-832948626625.png)
@@ -78,13 +86,13 @@ DEFINITION OF DONE:
 ACCEPTANCE CRITERIA:
 - Menu interface.
 - Food menu should be displayed as: recommendations, breakfast, lunch and drinks.
-- Waiter can add items to the order, get a total and send them to kitchen.
-- Should be responsive for both vertical and horizontal use.
+- Waiter can add items to the order, get a total price and send them to kitchen.
+- Should be responsive for both portrait and landscape orientation.
 
 DEFINITION OF DONE:
 - Menu done.
 - Menu route implemented.
-- Json menu created and accesible through fetch.
+- Json menu created and accessible through fetch.
 - Filters for recommendations, breakfast, lunch and drinks menu.
 - Order is sent to "orders" firestore collection.
 - Interface design completed.
@@ -95,14 +103,14 @@ DEFINITION OF DONE:
 ACCEPTANCE CRITERIA:
 - Kitchen interface.
 - Kitchen retrieves menu order from waiter.
-- Cooks can update the orders and send them back to waiters.
-- Should be responsive for both vertical and horizontal use.
+- Cooks can update the orders and send them back to the waiters.
+- Should be responsive for both portrait and landscape orientation.
 
 DEFINITION OF DONE:
 - Kitchen done.
 - Kitchen route implemented.
 - Data retrieved from firestore collection.
-- The order can be updated from new to active, then done in firestore collection and interface, and then is sent to the waiter.
+- The order can be updated from new to active and done (in both the firestore collection and the interface), and then be sent to the waiter.
 - Filters for new, active and done orders.
 - Interface design completed.
 
@@ -113,7 +121,7 @@ ACCEPTANCE CRITERIA:
 - Serve interface.
 - Waiter can retrieve kitchen ready orders.
 - Waiters can update the orders after being served and mark them as delivered.
-- Should be responsive for both vertical and horizontal use.
+- Should be responsive for both portrait and landscape orientation.
 
 DEFINITION OF DONE:
 - Serve done.
@@ -127,9 +135,9 @@ DEFINITION OF DONE:
 ````
 ACCEPTANCE CRITERIA:
 - Admin interface.
-- Admin can register new users and set them roles.
+- Admin can register new users and assign roles.
 - Admin can see every other interface.
-- Should be responsive for both vertical and horizontal use.
+- Should be responsive for both portrait and landscape orientation.
 
 DEFINITION OF DONE:
 - Admin done.
@@ -144,12 +152,13 @@ DEFINITION OF DONE:
 
 |<sub> USER STORY	|<sub> FUNCTIONALITY 	|<sub>DESIGN 	|<sub>USER EXPERIENCE	</sub>|
 |---	|---	|---	|--- |
-|<sub>U.S. 1	| <sub>  It works very well, love that I logged in and then I go directly to menu. But I wish I didn't had to use my email and would be able to use just my name. Lang button doesn't seem to be working.  	|  <sub>Amazingly cute design. Love the cat logo.	|  <sub>Intuitive app. I love the use of buttons for adding items to the order and I really like the alert message if I didn't enter an item or the table number. Table doesn't visually clean after sending the order.	|
-|   <sub>U.S. 2 | <sub> Kitchen is simple, comfortable and direct. Love that I can filter through order status.	|   <sub> Love the colors and the cute interface. Though maybe the tickets could be a little smaller. | <sub>Is very clear what you have to be do when you get into the app. I appreciate the change of banner color and button text when the order gets updated.
-|<sub>H.U. 3	|  <sub>Intuitive. There is a problem with the scroll when there are too many orders.|   <sub> Nice colors. Minimalistic but cute. |   <sub>	Active and done states are perfect. Would've love a visual notification when the order is ready|
-|<sub>H.U. 4	|  <sub> All the buttons are working and I can create users without problems. |   <sub> Header buttons are cute. Radio button is a little small. But overall is great. |   <sub>	Nice experience. Though I would suggest some sort of alert message when a user has been created|
+|<sub>U.S. 1	| <sub>  It works very well, love that I logged in and then I go directly to the menu. But I wish I didn't have to use my email and would be able to use just my name. Lang button doesn't seem to be working.  	|  <sub>Amazingly cute design. Love the cat logo.	|  <sub>Intuitive app. I value the use of buttons for adding items to the order and I really like the alert message that I get if I forget to enter any item or the table number. Table info doesn't visually clean after sending the order.	|
+|   <sub>U.S. 2 | <sub> Kitchen is simple, comfortable and direct. Is great that I can filter through order status.	|   <sub> Love the colors and the cute interface. Though maybe the tickets could be a little smaller. | <sub>Is very clear what you have to do when you get into the app. I appreciate the change of banner color and button text when the order gets updated.
+|<sub>U.S. 3	|  <sub>Intuitive. There is a problem with the scroll when there are too many orders.|   <sub> Nice colors. Minimalistic but cute. |   <sub>	Active and done states are perfect. Would've love a visual notification when the order is ready to be served|
+|<sub>U.S. 4	|  <sub> All the buttons are working and I can create users without problems. |   <sub> Header buttons are cute. Radio button is a little small. But overall is great. |   <sub>	Nice experience. Though I would suggest some sort of alert message when a user has been created.|
 
-Some of these inputs where taken into account and added to the app, and some other will be implemented in the future.
+<br>
+Some of these inputs where taken into account and added to the app, and others will be implemented in the future.
 
 
 ## Link
