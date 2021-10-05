@@ -2,11 +2,11 @@
 
 ## Índice
 
-* [Ñami Town](#ñamitown)
+* [Ñami Town](#ñami-town)
 * [Interface](#interface)
 * [Prototypes](#prototypes)
 * [User Stories](#user-stories)
-* [Usability Test](#usability-test)
+* [Usability Test](#usability-tests)
 * [Link](#link)
 
 ## Ñami Town 
@@ -17,29 +17,45 @@ It also includes an administrator interface for registering new users.
 
 ## Interface
 The app is designed for tablets, and is responsive for vertical or horizontal use. 
-### Waiter
 
-![waiter](https://user-images.githubusercontent.com/83680798/129109471-a55be354-38f2-4e70-aafa-7765ed25c6b6.gif)
+### Login/ Waiter Menu/ Admin
+![LoginVertical](https://user-images.githubusercontent.com/83680798/135952719-41dc69c2-986b-4244-a14e-bad459d5aa38.png)
+![MenuVertical](https://user-images.githubusercontent.com/83680798/135952672-c0f2a8bc-b1f3-47de-88e8-4fa8022912b9.png)
+![AdminVertical](https://user-images.githubusercontent.com/83680798/135952679-c29189f9-9b04-4be5-aa0b-26addb5b70b6.png)
+
 
 ### Kitchen
-<details>
-<summary> Click to see </summary>
+![CocinaHorizontal](https://user-images.githubusercontent.com/83680798/135952860-2c8624c4-6819-4f24-ac03-22d1b1b75fc1.png)
 
 
-</details>
-
-### Admin
 
 ## Prototypes
 Pastel colors and cute icons were used for the design.
 
 ### 1. Low Fidelity Prototype:
 <details>
+  <summary> Click to see </summary>
+  
+![img016](https://user-images.githubusercontent.com/83680798/135955033-36f98fd4-0c30-481f-a908-d2ad98e6753d.jpg)
+![img019](https://user-images.githubusercontent.com/83680798/135955036-2f31b21e-6e7a-462e-91cf-d30377ec0fea.jpg)
+
 
 </details>
 
 ### 2. High Fidelity Prototype:
-
+<details>
+  <summary> Click to see </summary>
+  
+![Login Vertical](https://user-images.githubusercontent.com/83680798/135953319-561b0645-24b1-4462-a1ff-dd4eb97ecc01.png)
+![Mesero 1 Vertical](https://user-images.githubusercontent.com/83680798/135953322-4a9e8a01-ebd2-4040-94a0-2ed5fb2ee0b7.png)
+![Mesero 2 Vertical](https://user-images.githubusercontent.com/83680798/135953326-2f6cbbce-3d87-4be4-be8a-63ecc25c956f.png)
+![Cocina Vertical](https://user-images.githubusercontent.com/83680798/135953327-c1fffcc2-3659-43a9-9905-b45965d66251.png)
+![Login Horizontal](https://user-images.githubusercontent.com/83680798/135953318-c649b539-840c-4e27-b7a2-7882bba15d01.png)
+![Mesero 1 Horizontal](https://user-images.githubusercontent.com/83680798/135953320-c628ed13-b3f4-4733-b44c-b9eeaa590c02.png)
+![Mesero 2 Horizontal](https://user-images.githubusercontent.com/83680798/135953325-df3d665b-1a42-4502-9f80-832948626625.png)
+![Cocina Horizontal](https://user-images.githubusercontent.com/83680798/135953392-adfddb32-7d12-4134-aabf-54e18ea63e68.png)
+  
+</details>
 
 
 ## User Stories
@@ -127,9 +143,9 @@ DEFINITION OF DONE:
 
 
 |<sub> USER STORY	|<sub> FUNCTIONALITY 	|<sub>DESIGN 	|<sub>USER EXPERIENCE	</sub>|
-|---	|---	|---	|--- |---	|
+|---	|---	|---	|--- |
 |<sub>U.S. 1	| <sub>  It works very well, love that I logged in and then I go directly to menu. But I wish I didn't had to use my email and would be able to use just my name. Lang button doesn't seem to be working.  	|  <sub>Amazingly cute design. Love the cat logo.	|  <sub>Intuitive app. I love the use of buttons for adding items to the order and I really like the alert message if I didn't enter an item or the table number. Table doesn't visually clean after sending the order.	|
-|   <sub>U.S. 2  <sub> Kitchen is simple, comfortable and direct. Love that I can filter through order status.	|   <sub> Love the colors and the cute interface. Though maybe the tickets could be a little smaller. | <sub>Is very clear what you have to be do when you get into the app. I appreciate the change of banner color and button text when the order gets updated.
+|   <sub>U.S. 2 | <sub> Kitchen is simple, comfortable and direct. Love that I can filter through order status.	|   <sub> Love the colors and the cute interface. Though maybe the tickets could be a little smaller. | <sub>Is very clear what you have to be do when you get into the app. I appreciate the change of banner color and button text when the order gets updated.
 |<sub>H.U. 3	|  <sub>Intuitive. There is a problem with the scroll when there are too many orders.|   <sub> Nice colors. Minimalistic but cute. |   <sub>	Active and done states are perfect. Would've love a visual notification when the order is ready|
 |<sub>H.U. 4	|  <sub> All the buttons are working and I can create users without problems. |   <sub> Header buttons are cute. Radio button is a little small. But overall is great. |   <sub>	Nice experience. Though I would suggest some sort of alert message when a user has been created|
 
