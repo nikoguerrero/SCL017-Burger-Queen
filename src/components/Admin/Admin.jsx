@@ -11,24 +11,21 @@ const Admin = () => {
   const [show, setShow] = useState(null);
   const showModal = () => setShow(true);
 
-  // const [error, setError] = useState(null);
-
   const Register = useCallback(async(e) => {
     e.preventDefault();
-    // try {
-        const res = await auth.createUserWithEmailAndPassword(email, pass);
-        await db.collection('users').doc(res.user.uid).set({
-            name: username,
-            role: role,
-            displayName: username,
-            email: res.user.email,
-            uid: res.user.uid,
-            creationDate: Date.now(),
-        });
-        showModal();
-        setEmail('');
-        setPass('');
-        setUsername('');
+    const res = await auth.createUserWithEmailAndPassword(email, pass);
+    await db.collection('users').doc(res.user.uid).set({
+        name: username,
+        role: role,
+        displayName: username,
+        email: res.user.email,
+        uid: res.user.uid,
+        creationDate: Date.now(),
+    });
+    showModal();
+    setEmail('');
+    setPass('');
+    setUsername('');
 }, [email, pass, username, role]); 
 
 const UserCreated = () => (
