@@ -16,7 +16,7 @@ Meanwhile, the kitchen workers can retrieve those orders and update them accordi
 It also includes an administrator interface for registering new users.
 
 ## Interface
-The app is designed for tablets, and is responsive for portrait and landscape orientation. 
+The app is designed for iPad Pro or similar size tablets, and is responsive for portrait and landscape orientation. 
 
 ### Login/ Waiter Menu/ Admin
 ![LoginVertical](https://user-images.githubusercontent.com/83680798/136049831-e956c382-4a00-4c71-a176-9d828a141f6d.png)
@@ -74,7 +74,7 @@ Pastel colors and cute icons were used for the design.
 ACCEPTANCE CRITERIA:
 - Login interface.
 - Users should be sent to menu, kitchen or admin interface according to role.
-- Should be responsive for both vertical and horizontal use.
+- Should be responsive for both portrait and landscape orientation.
 
 DEFINITION OF DONE:
 - Login done.
@@ -165,4 +165,4 @@ Some of these inputs where taken into account and added to the app, and others w
 
 ## Link
   
-
+[Nami Town](https://nami-town.web.app/)
